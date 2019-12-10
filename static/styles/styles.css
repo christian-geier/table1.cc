@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+}
+
+.container .column{
+    display: flex;
+    flex: 50%;
+}
+
+.container .column .table{
+    flex: 90%;
+}
