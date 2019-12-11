@@ -30,7 +30,7 @@ yet their adoption is often limited by barriers to use programming syntax.
 <hr>
 
 <p>
-Table1.cc aims to make this functionality accessible to a large portion of researchers.
+Table1.cc aims to make this functionality accessible to the entire scientific community.
 </p>
 
 
@@ -60,7 +60,16 @@ Table1.cc aims to make this functionality accessible to a large portion of resea
 
   </div>
   <div class="nested-items">
-    <div class="item4"></div>
+    <div class="item4">
+
+      {% if rownames %}
+  
+      {{ rownames | safe }}
+
+      {% endif %}
+
+
+    </div>
     <div class="item5"></div>
   </div>
 </div>

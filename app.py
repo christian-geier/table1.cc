@@ -1,4 +1,4 @@
-from flask import Flask, escape, request, render_template, url_for
+from flask import Flask, escape, request, render_template, url_for, redirect
 
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField, SubmitField
@@ -32,6 +32,13 @@ def df_to_table(df):
     return my_table_html
 
 
+def get_rownames(df):
+
+    '''returns a list of rownames [1st row] for a given DF'''
+    df_rownames = list(df)
+    return df_rownames
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "very_secret"
 
@@ -44,6 +51,9 @@ class PasteForm(FlaskForm):
 def index():
 
     my_table_html = None
+    rownames = None
+
+    paste_form = PasteForm()
 
     if request.method=='POST':
         raw_data = request.form['excel_data']
@@ -51,6 +61,10 @@ def index():
         df = read_csv(raw_string, sep='\t')
         my_table_html = df_to_table(df)
 
-    paste_form = PasteForm()
+        if rownames == None:
 
-    return render_template('index.html', form=paste_form, my_table_html=my_table_html)
+            rownames = list(df)
+
+    return render_template('index.html',
+        form=paste_form, rownames=rownames, my_table_html=my_table_html,
+        )

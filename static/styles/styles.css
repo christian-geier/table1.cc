@@ -42,6 +42,7 @@ form {
   height: 40vw;
   background: #d56c6c;
   margin-right: 10px;
+  display: table;
 }
 .nested-items {
   display: flex;
