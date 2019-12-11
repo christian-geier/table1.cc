@@ -9,20 +9,20 @@
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
   </head>
 
 
 <body>
 
-<title>table1.cc | Your Table 1 through Drag & Drop in <em>Seconds</em>!</title>
+<title>table1.cc | Your Table 1 through Drag & Drop in Seconds!</title>
 
 
-<h1>Welcome to table1.cc - Generate Your Table 1 in seconds!</h1>
+<h1>Welcome to table1.cc - Generate Your Table 1 in <em>Seconds</em>!</h1>
 
 <p>
-Scholarly work often requires to generate a "Table 1" to show summarized population data.
+Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized population data.
 This may require an interative, highly repetitive workflow. Available software packages for R and Python provide part of the solution
 yet their adoption is limited by barriers to use programming syntax.
 </p>
@@ -39,16 +39,18 @@ Table1.cc aims to make this functionality accessible to a large portion of resea
 <div class="container">
     <div class="column">
       <div>
-        <h2>Paste Here:</h2>
-        <textarea name="excel_data"></textarea>
-        <input type="button" onclick="javascript:generateTable()" value="Generate Table"/>
+        <h2>Paste excel data here:</h2>
+            <textarea id="pastein" name="excel_data" style="width:250px;height:150px;"></textarea><br>
+
       </div>
     </div>
 
     <div class="column">
-      <div class="myTable" id="parsed_table">
-        <h2>Table data will appear here:</h2></div>
-      </div>
+      <form method="post" action=''>
+      <h2>Table data will appear here:</h2>
+      <div id="excel_table"></div>
+      <button type="submit">Make Table 1!</button>
+      </form>
   </div>
 
 </body>
@@ -56,25 +58,35 @@ Table1.cc aims to make this functionality accessible to a large portion of resea
 <script>
 
 function generateTable() {
-    var data = $('textarea[name=excel_data]').val();
-    console.log(data);
-    var rows = data.split("\n");
+    var data = $('#pastein').val();
+var rows = data.split("\n");
 
-    var table = $('<tbody>');
+var table = $('<table />');
 
-    for(var y in rows) {
+for(var y in rows) {
     var cells = rows[y].split("\t");
     var row = $('<tr />');
     for(var x in cells) {
         row.append('<td>'+cells[x]+'</td>');
     }
+    table.append('<input type="hidden" name="value">');
     table.append(row);
-    table.append('</tbody></table>')
+    table.append('</input>');
 }
 
 // Insert into DOM
-$('#parsed_table').html(table);
+$('#excel_table').html(table);
 }
+
+$(document).ready(function() {
+	$('#pastein').on('paste', function(event) {
+      $('#pastein').on('input', function() {
+        generateTable();
+        $('#pastein').off('input');
+      })
+  })
+})
+
 
 // $(document).ready( function () {
 //     $('#parsed_table').DataTable();
