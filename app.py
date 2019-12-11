@@ -27,7 +27,7 @@ def index():
         raw_data = request.form['excel_data']
         raw_string = StringIO(raw_data)
         df = read_csv(raw_string, sep='\t')
-        my_table = TableOne(df, groupby='provider')
+        my_table = TableOne(df, groupby='gender', pval='True')
         my_table_html = my_table.tabulate(tablefmt="html")
         return my_table_html
 

@@ -42,7 +42,7 @@ Table1.cc aims to make this functionality accessible to a large portion of resea
       <form method="post">
         <h2>Paste excel data here:</h2>
             {{form.hidden_tag()}}
-            {{ form.excel_data() }}
+            <div>{{ form.excel_data() }}</div>
             {{ form.submit() }}
       </form>
     </div>
