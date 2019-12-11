@@ -37,18 +37,20 @@ app.config['SECRET_KEY'] = "very_secret"
 
 
 class PasteForm(FlaskForm):
-    excel_data = TextAreaField(u'Text', id="pastein", widget=TextArea(), validators=[DataRequired()])
-    submit = SubmitField('Load Data Set')
+    excel_data = TextAreaField(u'Text', id="pastein", widget=TextArea(), validators=[DataRequired()], render_kw={"placeholder": "Paste here"})
+    submit = SubmitField('Make Table 1!')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
+    my_table_html = None
 
     if request.method=='POST':
         raw_data = request.form['excel_data']
         raw_string = StringIO(raw_data)
         df = read_csv(raw_string, sep='\t')
         my_table_html = df_to_table(df)
-        return my_table_html
 
     paste_form = PasteForm()
-    return render_template('index.html', form=paste_form)
+
+    return render_template('index.html', form=paste_form, my_table_html=my_table_html)

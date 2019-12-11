@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <title>table1.cc | Your Table 1 through Drag & Drop within Seconds!</title>
     <meta name="description" content="Welcome to table1.cc - Generate Your Table 1 in seconds!
     Born out of frustration & here to ease your pain. Simply Paste to generate 'Table 1' automatically for you.">
     <meta name="keywords" content="Table 1, automate, scholar, population, publication, app">
     <meta name="author" content="Christian Geier, MD">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
@@ -18,16 +19,13 @@
 
 <body>
 
-<title>table1.cc | Your Table 1 through Drag & Drop within Seconds!</title>
+<h1>Welcome to table1.cc - Generate Your Table 1 for research papers within <em>Seconds</em>!</h1>
 
-
-<h1>Welcome to table1.cc - Generate Your Table 1 within <em>Seconds</em>!</h1>
-
-<p>
+<h3>
 Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized population data.
-This may require an interative, highly repetitive workflow. Available software packages for R and Python provide part of the solution
-yet their adoption is limited by barriers to use programming syntax.
-</p>
+This may require an iterative, highly repetitive workflow. <br>Available software packages for R and Python provide part of the solution
+yet their adoption is often limited by barriers to use programming syntax.
+</h3>
 
 <hr>
 
@@ -35,26 +33,37 @@ yet their adoption is limited by barriers to use programming syntax.
 Table1.cc aims to make this functionality accessible to a large portion of researchers.
 </p>
 
-<p>Hope you find it useful!</p>
 
+<div id="wrap">
+  <div class="item1">
+    <form method="post">
+          {{form.hidden_tag()}}
+          {{ form.excel_data(cols="99", rows="10") }}
+          {{ form.submit() }}
+    </form>
 
-<div class="container">
-    <div class="column">
-      <form method="post">
-        <h2>Paste excel data here:</h2>
-            {{form.hidden_tag()}}
-            <div>{{ form.excel_data() }}</div>
-            {{ form.submit() }}
-      </form>
-    </div>
-
-    <div class="column">
-      <form method="post" action=''>
-      <h2>Table data will appear here:</h2>
-      <div id="excel_table"></div>
-      <button type="submit">Make Table 1!</button>
-      </form>
   </div>
+
+  <div class="item2">
+    <div id="excel_table"></div>
+  </div>
+
+
+  <div class="item3">
+
+    {% if my_table_html %}
+
+    {{ my_table_html | safe }}
+
+    {% endif %}
+
+
+  </div>
+  <div class="nested-items">
+    <div class="item4"></div>
+    <div class="item5"></div>
+  </div>
+</div>
 
 </body>
 
