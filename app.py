@@ -12,6 +12,12 @@ from io import StringIO
 
 from tableone import TableOne
 
+def df_to_table(df):
+    my_table = TableOne(df, groupby='group', pval='True')
+    my_table_html = my_table.tabulate(tablefmt="html")
+    return my_table_html
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "very_secret"
 
@@ -27,8 +33,7 @@ def index():
         raw_data = request.form['excel_data']
         raw_string = StringIO(raw_data)
         df = read_csv(raw_string, sep='\t')
-        my_table = TableOne(df, groupby='gender', pval='True')
-        my_table_html = my_table.tabulate(tablefmt="html")
+        my_table_html = df_to_table(df)
         return my_table_html
 
     paste_form = PasteForm()
