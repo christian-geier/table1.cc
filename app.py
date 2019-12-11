@@ -12,9 +12,23 @@ from io import StringIO
 
 from tableone import TableOne
 
+GROUP_COL = 'group'
+
+DROP_COLS = ['id', 'raw_id', GROUP_COL]
+
+
 def df_to_table(df):
-    my_table = TableOne(df, groupby='group', pval='True')
+
+    df_cols = list(df)
+
+    # this is the list of columns for which Table 1 is generated
+    col_list = [df_col for df_col in df_cols if df_col not in DROP_COLS]
+
+    print("These are the selected columns: " + str(col_list))
+
+    my_table = TableOne(df, columns=col_list, groupby=GROUP_COL, pval='True')
     my_table_html = my_table.tabulate(tablefmt="html")
+
     return my_table_html
 
 
