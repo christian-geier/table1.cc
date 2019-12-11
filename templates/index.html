@@ -38,11 +38,12 @@ Table1.cc aims to make this functionality accessible to a large portion of resea
 
 <div class="container">
     <div class="column">
-      <div>
+      <form method="post">
         <h2>Paste excel data here:</h2>
-            <textarea id="pastein" name="excel_data" style="width:250px;height:150px;"></textarea><br>
-
-      </div>
+            {{form.hidden_tag()}}
+            {{ form.excel_data() }}
+            {{ form.submit() }}
+      </form>
     </div>
 
     <div class="column">
