@@ -1,16 +1,14 @@
-from flask import Flask, escape, request, render_template, url_for, redirect
+from flask import render_template, request
+from app.forms import PasteForm
 
-from flask_wtf import FlaskForm
-from wtforms import TextAreaField, SubmitField
-from wtforms.validators import DataRequired
-from wtforms.widgets import TextArea
-
-import pandas as pd
-from pandas import read_csv
+from app import app
 
 from io import StringIO
 
+from pandas import read_csv
+
 from tableone import TableOne
+
 
 GROUP_COL = 'group'
 
@@ -31,21 +29,6 @@ def df_to_table(df):
 
     return my_table_html
 
-
-def get_rownames(df):
-
-    '''returns a list of rownames [1st row] for a given DF'''
-    df_rownames = list(df)
-    return df_rownames
-
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = "very_secret"
-
-
-class PasteForm(FlaskForm):
-    excel_data = TextAreaField(u'Text', id="pastein", widget=TextArea(), validators=[DataRequired()], render_kw={"placeholder": "Paste here"})
-    submit = SubmitField('Make Table 1!')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
