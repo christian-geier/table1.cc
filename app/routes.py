@@ -37,8 +37,7 @@ def index():
     rownames = None
 
     paste_form = PasteForm()
-
-    if request.method=='POST':
+    if paste_form.validate_on_submit() & (request.method=='POST'):
         raw_data = request.form['excel_data']
         raw_string = StringIO(raw_data)
         df = read_csv(raw_string, sep='\t')
