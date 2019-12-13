@@ -36,6 +36,10 @@ Table1.cc aims to make this functionality accessible to the entire scientific co
     <form method="post">
           {{form.hidden_tag()}}
           {{ form.excel_data(cols="99", rows="10") }}
+          <br>
+          {% for error in form.excel_data.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
           {{ form.submit() }}
     </form>
 
