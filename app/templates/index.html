@@ -20,7 +20,7 @@
 
 <h3>
 Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized population data.
-This may require an iterative, highly repetitive workflow. <br>Available software packages for R and Python provide part of the solution
+This may require an iterative, highly repetitive workflow. <br>Available software packages for <a href="https://github.com/kaz-yos/tableone">R</a> and <a href="https://github.com/tompollard/tableone">Python</a> provide part of the solution
 yet their adoption is often limited by barriers to use programming syntax.
 </h3>
 
@@ -33,22 +33,29 @@ Table1.cc aims to make this functionality accessible to the entire scientific co
 
 <div id="wrap">
   <div class="item1">
-    <form method="post">
+  <form method="post">
           {{form.hidden_tag()}}
           {{ form.excel_data(cols="99", rows="10") }}
           <br>
           {% for error in form.excel_data.errors %}
             <span style="color: red;">[{{ error }}]</span>
           {% endfor %}
-          {{ form.submit() }}
-    </form>
 
-  </div>
 
+
+          {% for subfield in form.grouping_variable %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+    {% endfor %}
+      {{ form.submit() }}
+
+
+  </form>
+</div>
   <div class="item2">
-    <div id="excel_table"></div>
   </div>
-
 
   <div class="item3">
 
@@ -63,11 +70,7 @@ Table1.cc aims to make this functionality accessible to the entire scientific co
   <div class="nested-items">
     <div class="item4">
 
-      {% if rownames %}
 
-      {{ rownames | safe }}
-
-      {% endif %}
 
 
     </div>
@@ -81,35 +84,35 @@ Table1.cc aims to make this functionality accessible to the entire scientific co
 {{ super() }}
 <script>
 
-function generateTable() {
-    var data = $('#pastein').val();
-var rows = data.split("\n");
-
-var table = $('<table />');
-
-for(var y in rows) {
-    var cells = rows[y].split("\t");
-    var row = $('<tr />');
-    for(var x in cells) {
-        row.append('<td>'+cells[x]+'</td>');
-    }
-    table.append('<input type="hidden" name="value">');
-    table.append(row);
-    table.append('</input>');
-}
+// function generateTable() {
+//     var data = $('#pastein').val();
+// var rows = data.split("\n");
+//
+// var table = $('<table />');
+//
+// for(var y in rows) {
+//     var cells = rows[y].split("\t");
+//     var row = $('<tr />');
+//     for(var x in cells) {
+//         row.append('<td>'+cells[x]+'</td>');
+//     }
+//     table.append('<input type="hidden" name="value">');
+//     table.append(row);
+//     table.append('</input>');
+// }
 
 // Insert into DOM
-$('#excel_table').html(table);
-}
+// $('#excel_table').html(table);
+// }
 
-$(document).ready(function() {
-	$('#pastein').on('paste', function(event) {
-      $('#pastein').on('input', function() {
-        generateTable();
-        $('#pastein').off('input');
-      })
-  })
-})
+// $(document).ready(function() {
+// 	$('#pastein').on('paste', function(event) {
+//       $('#pastein').on('input', function() {
+//         generateTable();
+//         $('#pastein').off('input');
+//       })
+//   })
+// })
 
 
 // $(document).ready( function () {
