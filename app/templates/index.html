@@ -16,18 +16,19 @@
 
   {% block content %}
 
-<h1>Welcome to table1.cc - Generate Your Table 1 for research papers within <em>Seconds</em>!</h1>
+<h1>Welcome to table1.cc - Generate Your <i>Table 1</i> for research papers within <em>Seconds</em>!</h1>
 
 <h3>
-Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized population data.
-This may require an iterative, highly repetitive workflow. <br>Available software packages for <a href="https://github.com/kaz-yos/tableone">R</a> and <a href="https://github.com/tompollard/tableone">Python</a> provide part of the solution
-yet their adoption is often limited by barriers to use programming syntax.
+<strong><u>Background:</u></strong>
+Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized<a href="https://en.wikipedia.org/wiki/Summary_statistics"> population statistics</a>.
+To optimize efficiency and reliability, automation of this task is desirable. Currently available software packages for <a href="https://github.com/kaz-yos/tableone">R</a> and <a href="https://github.com/tompollard/tableone">Python</a> provide part of the solution
+but their reliance on programming syntax limits their widespread adoption.
 </h3>
 
 <hr>
 
 <p>
-Table1.cc aims to make this functionality accessible to the entire scientific community.
+The motivation behind Table1.cc is to make this functionality more accessible and easier to use for everyone.
 </p>
 
 
@@ -49,6 +50,8 @@ Table1.cc aims to make this functionality accessible to the entire scientific co
             <td>{{ subfield.label }}</td>
         </tr>
     {% endfor %}
+
+    {{ form.included_variables() }}
       {{ form.submit() }}
 
 
@@ -59,16 +62,14 @@ Table1.cc aims to make this functionality accessible to the entire scientific co
 
   <div class="item3">
 
-    {% if my_table_html %}
-
-    {{ my_table_html | safe }}
-
-    {% endif %}
-
-
   </div>
   <div class="nested-items">
     <div class="item4">
+      {% if my_table_html %}
+
+      {{ my_table_html | safe }}
+
+      {% endif %}
 
 
 

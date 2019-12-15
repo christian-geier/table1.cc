@@ -1,7 +1,13 @@
 from flask_wtf import FlaskForm
-from wtforms import TextAreaField, SubmitField, RadioField
+from wtforms import TextAreaField, SubmitField, RadioField, SelectMultipleField
 from wtforms.validators import DataRequired, Length
-from wtforms.widgets import TextArea
+from wtforms.widgets import TextArea, ListWidget, CheckboxInput
+
+
+class MultiCheckboxField(SelectMultipleField):
+	widget			= ListWidget(prefix_label=False)
+	option_widget	= CheckboxInput()
+
 
 class PasteForm(FlaskForm):
 
@@ -11,5 +17,6 @@ class PasteForm(FlaskForm):
 
     grouping_variable = RadioField(choices=[], validators=[DataRequired()])
 
+    included_variables = MultiCheckboxField(choices=[])
 
     submit = SubmitField('Make Table 1!')

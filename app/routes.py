@@ -13,14 +13,12 @@ from tableone import TableOne
 DROP_COLS = ['id', 'raw_id']
 
 
-def df_to_table(df, groupvar):
+def df_to_table(df, incl_vars, groupvar):
 
     df_cols = list(df)
 
     # this is the list of columns for which Table 1 is generated
-    col_list = [df_col for df_col in df_cols if df_col not in DROP_COLS]
-
-    print("These are the selected columns: " + str(col_list))
+    col_list = [df_col for df_col in incl_vars if df_col not in DROP_COLS]
 
     my_table = TableOne(df, columns=col_list, groupby=groupvar)
     my_table_html = my_table.tabulate(tablefmt="html")
@@ -45,13 +43,15 @@ def index():
 
         paste_form.grouping_variable.choices = c_groupvar
 
+        paste_form.included_variables.choices = c_groupvar
+
 
     if paste_form.validate_on_submit():
         groupvar = request.form['grouping_variable']
 
-        print(groupvar)
+        incl_vars = request.form.getlist('included_variables')
 
-        my_table_html = df_to_table(df, groupvar)
+        my_table_html = df_to_table(df, incl_vars, groupvar)
 
         return render_template('index.html',
             form=paste_form, my_table_html=my_table_html,
