@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 80px;
+}
+textarea {
+  max-width: 100%;
+  max-height: 10%;
+}
+form {
+  max-height: 300px;
+}
+
+}
+
+.item2 {
+  margin-bottom: 30px;
+}
+
+
+.item3 {
+  width: 55%;
+  height: 40vw;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: table;
+}
