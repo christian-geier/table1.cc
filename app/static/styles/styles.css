@@ -13,10 +13,16 @@ form {
   max-height: 300px;
 }
 
+input,
+input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+}
+
 }
 
 .item2 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 
@@ -25,6 +31,6 @@ form {
   height: 40vw;
   margin-right: 10px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: table;
 }

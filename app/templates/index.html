@@ -16,46 +16,71 @@
 
   {% block content %}
 
-<h1>Welcome to table1.cc - Generate Your <i>Table 1</i> for research papers within <em>Seconds</em>!</h1>
+<h1>Welcome to table1.cc - Generate Your <i>Table 1</i> for research papers within <em>seconds</em>!</h1>
 
 <h3>
-<strong><u>Background:</u></strong>
-Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized<a href="https://en.wikipedia.org/wiki/Summary_statistics"> population statistics</a>.
-To optimize efficiency and reliability, automation of this task is desirable. Currently available software packages for <a href="https://github.com/kaz-yos/tableone">R</a> and <a href="https://github.com/tompollard/tableone">Python</a> provide part of the solution
-but their reliance on programming syntax limits their widespread adoption.
-</h3>
+<strong><u>Background:</u></strong></h3>
+<h5>Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized <a href="https://en.wikipedia.org/wiki/Summary_statistics">population statistics</a>.
+To optimize efficiency and reliability, automation of this task is desirable. Currently available software packages for <a href="https://github.com/kaz-yos/tableone" data-toggle="tooltip" title="A powerful statistical programming language">R</a> and <a href="https://github.com/tompollard/tableone"  data-toggle="tooltip" title="A programming language popular in life sciences">Python</a> provide part of the solution
+but their reliance on programming syntax limits their widespread adoption in the wider scientific community.
+</h5>
 
 <hr>
 
 <p>
-The motivation behind Table1.cc is to make this functionality more accessible and easier to use for everyone.
+<h3><strong><u>Solution:</u></strong></h3>
+<h5>
+Table1.cc is a simple web application which aims to provide an intuitive easy-to-use interface to enable automated generation of a <em>Table 1</em>. The purpose is to make the power of R and Python more accessible for this use case.
+</h5>
+</p>
+
+<hr>
+
+<p>
+  <h5><em>Try it out below!</em> OR click <a href="/tutorial">I'd still like to see a tutorial...</a></h5>
 </p>
 
 
 <div id="wrap">
   <div class="item1">
+
+  {% if complete_form.paste_data %}
   <form method="post">
-          {{form.hidden_tag()}}
-          {{ form.excel_data(cols="99", rows="10") }}
+          {{ complete_form.paste_data.hidden_tag()}}
+          {{ complete_form.paste_data.excel_data(cols="99", rows="10") }}
           <br>
-          {% for error in form.excel_data.errors %}
+          {% for error in complete_form.paste_data.excel_data.errors %}
             <span style="color: red;">[{{ error }}]</span>
           {% endfor %}
+          {{ complete_form.paste_data.submit1() }}
+  {% endif %}
 
-
-
-          {% for subfield in form.grouping_variable %}
-        <tr>
-            <td>{{ subfield }}</td>
-            <td>{{ subfield.label }}</td>
-        </tr>
+{% if complete_form.options %}
+    {{complete_form.options.hidden_tag()}}
+    {% if complete_form.options.grouping_variable.choices != [] %}
+    <h6>Step 1. Select Grouping Variable:</h6>
+    {{ complete_form.options.grouping_variable() }}
+    <br>
+    <h6>Step 2. Select Variables of Interest and select the Variable Type:</h6>
+    {% for subfield in complete_form.options.included_variables %}
+      <tr>
+          <td>{{ subfield }}</td>
+          <td>{{ subfield.label }}</td>
+      </tr>
+      <tr>
+          <td>{{ complete_form.options.variable_type() }}<td>
+      </tr>
     {% endfor %}
 
-    {{ form.included_variables() }}
-      {{ form.submit() }}
+        <h6>Step 3. Additional options:</h6>
 
-
+        {% endif %}
+        <hr>
+      {{ complete_form.options.submit2() }}
   </form>
+  {% endif %}
+
+
 </div>
   <div class="item2">
   </div>

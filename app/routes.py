@@ -1,5 +1,5 @@
-from flask import render_template, request
-from app.forms import PasteForm
+from flask import render_template, request, redirect, url_for
+from app.forms import CompleteForm
 
 from app import app
 
@@ -29,35 +29,48 @@ def df_to_table(df, incl_vars, groupvar):
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    paste_form = PasteForm()
+    complete_form = CompleteForm(request.form)
 
+    if (request.method == 'POST') & (request.form.get('paste_data-submit1') is not None) & complete_form.paste_data.validate_on_submit():
 
-    if request.method=='POST':
-        raw_data = request.form['excel_data']
+        raw_data = request.form['paste_data-excel_data']
         raw_string = StringIO(raw_data)
-        df = read_csv(raw_string, sep='\t')
 
-        rownames = list(df)
+        frame = read_csv(raw_string, sep='\t')
+
+        rownames = list(frame)
 
         c_groupvar = [(k, k) for k in rownames]
+        c_vartypes = [(k, 'continuous') for k in rownames]
 
-        paste_form.grouping_variable.choices = c_groupvar
+        complete_form.options.grouping_variable.choices = c_groupvar
+        complete_form.options.included_variables.choices = c_groupvar
 
-        paste_form.included_variables.choices = c_groupvar
 
+    if (request.form.get('options-submit2') is not None):
 
-    if paste_form.validate_on_submit():
-        groupvar = request.form['grouping_variable']
+        raw_data = request.form['paste_data-excel_data']
+        raw_string = StringIO(raw_data)
 
-        incl_vars = request.form.getlist('included_variables')
+        frame = read_csv(raw_string, sep='\t')
 
-        my_table_html = df_to_table(df, incl_vars, groupvar)
+        groupvar = request.form['options-grouping_variable']
 
+        incl_vars = request.form.getlist('options-included_variables')
+
+        my_table_html = df_to_table(frame, incl_vars, groupvar)
+
+    
         return render_template('index.html',
-            form=paste_form, my_table_html=my_table_html,
+            my_table_html=my_table_html,
+            complete_form=complete_form
             )
 
 
-    return render_template('index.html',
-        form=paste_form,
-        )
+    return render_template('index.html', complete_form=complete_form)
+
+
+
+@app.route('/tutorial')
+def show_tutorial():
+    return render_template('tutorial.html')
