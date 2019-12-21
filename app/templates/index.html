@@ -72,7 +72,8 @@ Table1.cc is a simple web application which aims to provide an intuitive easy-to
     {% endfor %}
   </table>
         <h5><b>Step 3:</b> Additional options:</h5>
-
+        {{ complete_form.options.pval(checked=False)}}
+        {{ complete_form.options.pval.label }}
         {% endif %}
         <hr>
       {{ complete_form.options.submit2() }}
@@ -85,22 +86,12 @@ Table1.cc is a simple web application which aims to provide an intuitive easy-to
   </div>
 
   <div class="item3">
+    {% if my_table_html %}
 
-  </div>
-  <div class="nested-items">
-    <div class="item4">
-      {% if my_table_html %}
+    {{ my_table_html | safe }}
 
-      {{ my_table_html | safe }}
+    {% endif %}
 
-      {% endif %}
-
-
-
-
-    </div>
-    <div class="item5"></div>
-  </div>
 </div>
 
   {% endblock content %}

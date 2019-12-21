@@ -13,15 +13,15 @@ from tableone import TableOne
 DROP_COLS = ['id', 'raw_id']
 
 
-def df_to_table(df, incl_vars, groupvar):
+def df_to_table(df, incl_vars, groupvar, pval, missing=False):
 
     df_cols = list(df)
 
     # this is the list of columns for which Table 1 is generated
     col_list = [df_col for df_col in incl_vars if df_col not in DROP_COLS]
 
-    my_table = TableOne(df, columns=col_list, groupby=groupvar)
-    my_table_html = my_table.tabulate(tablefmt="html")
+    my_table = TableOne(df, columns=col_list, groupby=groupvar, pval=pval, missing=missing)
+    my_table_html = my_table.to_html(classes=["table", "table-dark"])
 
     return my_table_html
 
@@ -58,7 +58,9 @@ def index():
 
         incl_vars = request.form.getlist('options-included_variables')
 
-        my_table_html = df_to_table(frame, incl_vars, groupvar)
+        pval = request.form.get('options-pval', False)
+
+        my_table_html = df_to_table(frame, incl_vars, groupvar, pval)
 
 
         return render_template('index.html',

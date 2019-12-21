@@ -1,12 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import TextAreaField, SubmitField, RadioField, SelectMultipleField, SelectField, FormField
+from wtforms import TextAreaField, SubmitField, RadioField, SelectMultipleField, SelectField, FormField, BooleanField
 from wtforms.validators import DataRequired, Length
 from wtforms.widgets import TextArea, ListWidget, CheckboxInput
 
 
 class MultiCheckboxField(SelectMultipleField):
-	widget			= ListWidget(prefix_label=False)
-	option_widget	= CheckboxInput()
+    widget			= ListWidget(prefix_label=False)
+    option_widget	= CheckboxInput()
 
 
 class PasteForm(FlaskForm):
@@ -25,6 +25,7 @@ class SetOptionsForm(FlaskForm):
 
     submit2 = SubmitField('Make Table 1!')
 
+    pval = BooleanField('calculate p-Value')
 
 class CompleteForm(FlaskForm):
     paste_data = FormField(PasteForm)
