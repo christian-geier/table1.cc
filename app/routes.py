@@ -60,7 +60,7 @@ def index():
 
         my_table_html = df_to_table(frame, incl_vars, groupvar)
 
-    
+
         return render_template('index.html',
             my_table_html=my_table_html,
             complete_form=complete_form

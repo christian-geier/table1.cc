@@ -58,21 +58,20 @@ Table1.cc is a simple web application which aims to provide an intuitive easy-to
 {% if complete_form.options %}
     {{complete_form.options.hidden_tag()}}
     {% if complete_form.options.grouping_variable.choices != [] %}
-    <h6>Step 1. Select Grouping Variable:</h6>
+    <h5><b>Step 1:</b> Select Grouping Variable:</h5>
     {{ complete_form.options.grouping_variable() }}
     <br>
-    <h6>Step 2. Select Variables of Interest and select the Variable Type:</h6>
+    <h5><b>Step 2:</b> Select Variables of Interest and select the Variable Type:</h5>
+    <table>
     {% for subfield in complete_form.options.included_variables %}
       <tr>
-          <td>{{ subfield }}</td>
+          <td>{{ subfield(checked=True) }}</td>
           <td>{{ subfield.label }}</td>
-      </tr>
-      <tr>
           <td>{{ complete_form.options.variable_type() }}<td>
       </tr>
     {% endfor %}
-
-        <h6>Step 3. Additional options:</h6>
+  </table>
+        <h5><b>Step 3:</b> Additional options:</h5>
 
         {% endif %}
         <hr>
