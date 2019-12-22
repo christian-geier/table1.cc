@@ -1,9 +1,10 @@
 # Done
 - Select Variables
+- 'Flash' when successfully uploading/parsing data
 
 # Upcoming Features
 
 - Upload Excel Files
 - Format Variable Labels
 - Select Variable class
-- 'Flash' when successfully uploading/parsing data
+- https support
