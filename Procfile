@@ -1,1 +1,1 @@
-gunicorn table1cc:app
+web: gunicorn app:table1
