@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  <meta name="description" content="Welcome to table1.cc - Generate Your Table 1 in seconds!
+  Born out of frustration & here to ease your pain. Simply Paste to generate 'Table 1' automatically for you.">
+  <meta name="keywords" content="Table 1, automate, scholar, population, publication, app">
+  <meta name="author" content="Christian Geier, MD">
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+<div id="wrap">
+  <div class="item1">
+  {% if complete_form.paste_data %}
+  <form method="post">
+          {{ complete_form.paste_data.hidden_tag()}}
+          {{ complete_form.paste_data.excel_data(cols="99", rows="4", hidden=hide_display) }}
+          <br>
+          {% for error in complete_form.paste_data.excel_data.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+          {{ complete_form.paste_data.submit1(hidden=hide_display) }}
+  {% endif %}
+
+{% if complete_form.options %}
+    {{complete_form.options.hidden_tag()}}
+    {% if complete_form.options.grouping_variable.choices != [] %}
+    <h5><b>Step 1:</b> Select Grouping Variable:</h5>
+    {{ complete_form.options.grouping_variable() }}
+    <br>
+    <h5><b>Step 2:</b> Select Variables of Interest and select the Variable Type:</h5>
+    <table>
+      <tr>
+    {% for subfield in complete_form.options.included_variables %}
+          <td>{{ subfield(checked=True) }}</td>
+          <td><b>{{ subfield.label }}</b></td>
+          <td>{{ complete_form.options.variable_type() }}<td>
+    {% endfor %}
+  </tr>
+  </table>
+        <h5><b>Step 3:</b> Additional options:</h5>
+        {{ complete_form.options.pval(checked=False)}}
+        {{ complete_form.options.pval.label }}
+        {% endif %}
+        <hr>
+      {{ complete_form.options.submit2() }}
+  </form>
+  {% endif %}
+
+
+  <div class="item2">
+    {% if my_table_html %}
+
+    {{ my_table_html | safe }}
+
+    {% endif %}
+
+
+{% endblock %}

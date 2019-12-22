@@ -9,6 +9,21 @@
     {% block styles %}
     <!-- Bootstrap CSS -->
     {{ bootstrap.load_css() }}
+    <div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'message' %}
+                  <div class="alert alert-warning" role="alert">
+                {% else %}
+                  <div class="alert alert-{{ category }}" role="alert">
+                {% endif %}
+                  {{ message }}
+                </div>
+            {% endfor %}
+          {% endif %}
+      {% endwith %}
+    </div>
     {% endblock %}
 
      <title>table1.cc | Your Table 1 through Drag & Drop within Seconds!</title>
@@ -18,6 +33,8 @@
     <!-- Your page content -->
     <nav class="navbar fixed-top navbar-light bg-light">
       <a class="navbar-brand" href="/" data-toggle="tooltip" title="An early version, made available for testing">table1.cc (BETA!)</a>
+      <a class="navbar" href="{{ url_for('background')}}">Background</a>
+      <a class="navbar" href="{{ url_for('tutorial')}}">Tutorial</a>
     </nav>
 
     {% block content %}{% endblock %}

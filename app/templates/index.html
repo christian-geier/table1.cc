@@ -18,17 +18,10 @@
 
 <h1>Welcome to table1.cc - Generate Your <i>Table 1</i> for research papers within <em>seconds</em>!</h1>
 
-<h3>
-<strong><u>Background:</u></strong></h3>
-<h5>Scholarly work often requires to generate a <em>"Table 1"</em> to show summarized <a href="https://en.wikipedia.org/wiki/Summary_statistics">population statistics</a>.
-To optimize efficiency and reliability, automation of this task is desirable. Currently available software packages for <a href="https://github.com/kaz-yos/tableone" data-toggle="tooltip" title="A powerful statistical programming language">R</a> and <a href="https://github.com/tompollard/tableone"  data-toggle="tooltip" title="A programming language popular in life sciences">Python</a> provide part of the solution
-but their reliance on programming syntax limits their widespread adoption in the wider scientific community.
-</h5>
-
 <hr>
 
 <p>
-<h3><strong><u>Solution:</u></strong></h3>
+<h3><strong><u>Description:</u></strong></h3>
 <h5>
 Table1.cc is a simple web application which aims to provide an intuitive easy-to-use interface to enable automated generation of a <em>Table 1</em>. The purpose is to make the power of R and Python more accessible for this use case.
 </h5>
@@ -47,12 +40,12 @@ Table1.cc is a simple web application which aims to provide an intuitive easy-to
   {% if complete_form.paste_data %}
   <form method="post">
           {{ complete_form.paste_data.hidden_tag()}}
-          {{ complete_form.paste_data.excel_data(cols="99", rows="10") }}
+          {{ complete_form.paste_data.excel_data(cols="99", rows="4", hidden=hide_display) }}
           <br>
           {% for error in complete_form.paste_data.excel_data.errors %}
             <span style="color: red;">[{{ error }}]</span>
           {% endfor %}
-          {{ complete_form.paste_data.submit1() }}
+          {{ complete_form.paste_data.submit1(hidden=hide_display) }}
   {% endif %}
 
 {% if complete_form.options %}
@@ -63,13 +56,13 @@ Table1.cc is a simple web application which aims to provide an intuitive easy-to
     <br>
     <h5><b>Step 2:</b> Select Variables of Interest and select the Variable Type:</h5>
     <table>
-    {% for subfield in complete_form.options.included_variables %}
       <tr>
+    {% for subfield in complete_form.options.included_variables %}
           <td>{{ subfield(checked=True) }}</td>
-          <td>{{ subfield.label }}</td>
+          <td><b>{{ subfield.label }}</b></td>
           <td>{{ complete_form.options.variable_type() }}<td>
-      </tr>
     {% endfor %}
+  </tr>
   </table>
         <h5><b>Step 3:</b> Additional options:</h5>
         {{ complete_form.options.pval(checked=False)}}

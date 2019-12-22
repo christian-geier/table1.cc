@@ -5,14 +5,14 @@ from wtforms.widgets import TextArea, ListWidget, CheckboxInput
 
 
 class MultiCheckboxField(SelectMultipleField):
-    widget			= ListWidget(prefix_label=False)
-    option_widget	= CheckboxInput()
+    widget            = ListWidget(prefix_label=False)
+    option_widget    = CheckboxInput()
 
 
 class PasteForm(FlaskForm):
 
     len_val = Length(min=100, max=1000000, message="Data does not meet requirements. Please try again.")
-    excel_data = TextAreaField(u'Text', widget=TextArea(), validators=[DataRequired(), len_val], render_kw={"placeholder": "Step 0. Copy the raw spreadsheet data from Excel/Google Sheets/etc. and paste it into this field!"})
+    excel_data = TextAreaField(u'Text', widget=TextArea(), validators=[DataRequired(), len_val], render_kw={"placeholder": "Step 0: Copy the raw spreadsheet data from Excel/Google Sheets/etc. and paste it into this field!"})
 
     submit1 = SubmitField('I pasted the spreadsheet data!')
 
