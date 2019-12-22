@@ -32,19 +32,28 @@
 {% if complete_form.options %}
     {{complete_form.options.hidden_tag()}}
     {% if complete_form.options.grouping_variable.choices != [] %}
-    <h5><b>Step 1:</b> Select Grouping Variable:</h5>
-    {{ complete_form.options.grouping_variable() }}
-    <br>
-    <h5><b>Step 2:</b> Select Variables of Interest and select the Variable Type:</h5>
+
+    <h5><b>Step 1:</b> Select Variables of Interest and select the Variable Type:</h5>
     <table>
       <tr>
     {% for subfield in complete_form.options.included_variables %}
+
+          {% if loop.index0 % 5 == 0 %}
+        </tr>
+        <tr>
+          {% endif %}
           <td>{{ subfield(checked=True) }}</td>
           <td><b>{{ subfield.label }}</b></td>
           <td>{{ complete_form.options.variable_type() }}<td>
     {% endfor %}
   </tr>
   </table>
+  <hr>
+
+  <h5><b>Step 2:</b> Select Grouping Variable:</h5>
+  {{ complete_form.options.grouping_variable() }}
+  <hr>
+
         <h5><b>Step 3:</b> Additional options:</h5>
         {{ complete_form.options.pval(checked=False)}}
         {{ complete_form.options.pval.label }}
@@ -54,6 +63,7 @@
   </form>
   {% endif %}
 
+</div>
 
   <div class="item2">
     {% if my_table_html %}

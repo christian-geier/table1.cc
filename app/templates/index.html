@@ -21,15 +21,6 @@
 <hr>
 
 <p>
-<h3><strong><u>Description:</u></strong></h3>
-<h5>
-Table1.cc is a simple web application which aims to provide an intuitive easy-to-use interface to enable automated generation of a <em>Table 1</em>. The purpose is to make the power of R and Python more accessible for this use case.
-</h5>
-</p>
-
-<hr>
-
-<p>
   <h5><em>Try it out below!</em> OR click <a href="/tutorial">I'd still like to see a tutorial...</a></h5>
 </p>
 
@@ -69,65 +60,23 @@ Table1.cc is a simple web application which aims to provide an intuitive easy-to
         {{ complete_form.options.pval.label }}
         {% endif %}
         <hr>
-      {{ complete_form.options.submit2() }}
   </form>
   {% endif %}
 
+  <blockquote class="blockquote">
+  <p class="mb-0"> While we have tried to use best practices in creating this package, automation of even basic statistical tasks can be unsound if done without supervision. We encourage use of tableone alongside other methods of descriptive statistics and, in particular, visualization to ensure appropriate data handling. [...] <em>Guidance should be sought from a statistician when using `tableone` for a research study, especially prior to submitting the study for publication.</em>
+  </p>
+    <footer class="blockquote-footer"><cite title="Source Title"><a href="https://pypi.org/project/tableone/">Authors of the 'tablone' Python module<a></cite></footer>
+  </blockquote>
 
-</div>
-  <div class="item2">
-  </div>
-
-  <div class="item3">
-    {% if my_table_html %}
-
-    {{ my_table_html | safe }}
-
-    {% endif %}
-
-</div>
 
   {% endblock content %}
+
+
 
 {% block scripts %}
 {{ super() }}
 <script>
-
-// function generateTable() {
-//     var data = $('#pastein').val();
-// var rows = data.split("\n");
-//
-// var table = $('<table />');
-//
-// for(var y in rows) {
-//     var cells = rows[y].split("\t");
-//     var row = $('<tr />');
-//     for(var x in cells) {
-//         row.append('<td>'+cells[x]+'</td>');
-//     }
-//     table.append('<input type="hidden" name="value">');
-//     table.append(row);
-//     table.append('</input>');
-// }
-
-// Insert into DOM
-// $('#excel_table').html(table);
-// }
-
-// $(document).ready(function() {
-// 	$('#pastein').on('paste', function(event) {
-//       $('#pastein').on('input', function() {
-//         generateTable();
-//         $('#pastein').off('input');
-//       })
-//   })
-// })
-
-
-// $(document).ready( function () {
-//     $('#parsed_table').DataTable();
-// } );
-
 
 </script>
 

@@ -7,10 +7,10 @@ body {
 }
 textarea {
   max-width: 100%;
-  max-height: 10%;
+  max-height: 20%;
 }
 form {
-  max-height: 300px;
+  max-height: 600px;
 }
 
 input,
@@ -23,6 +23,8 @@ input::placeholder {
 
 .item2 {
   margin-bottom: 20px;
+  margin-top: 250px;
+  padding-top: 150px;
 }
 
 
@@ -30,7 +32,12 @@ input::placeholder {
   width: 55%;
   height: 40vw;
   margin-right: 10px;
-  margin-top: 50px;
+  margin-top: 150px;
   margin-bottom: 10px;
   display: table;
+}
+
+td {
+    white-space: normal !important;
+    padding: 4px;
 }

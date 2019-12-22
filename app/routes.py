@@ -21,6 +21,7 @@ def df_to_table(df, incl_vars, groupvar, pval, missing=False):
     col_list = [df_col for df_col in incl_vars if df_col not in DROP_COLS]
 
     my_table = TableOne(df, columns=col_list, groupby=groupvar, pval=pval, missing=missing)
+
     my_table_html = my_table.to_html(classes=["table", "table-dark", 'table-sm'])
 
     return my_table_html
@@ -45,11 +46,15 @@ def index():
 
             rownames = list(frame)
 
-            c_groupvar = [(k, k) for k in rownames]
             c_vartypes = [(k, 'continuous') for k in rownames]
+            c_varnames = [(k, k) for k in rownames]
 
+            complete_form.options.included_variables.choices = c_varnames
+
+            groupvar_names = ['None'] + rownames
+            c_groupvar = [(k, k) for k in groupvar_names]
             complete_form.options.grouping_variable.choices = c_groupvar
-            complete_form.options.included_variables.choices = c_groupvar
+
 
             hide_display = True
 
@@ -61,7 +66,10 @@ def index():
 
             frame = read_csv(raw_string, sep='\t')
 
-            groupvar = request.form['options-grouping_variable']
+            groupvar = request.form.get('options-grouping_variable', False)
+
+
+            groupvar = None if groupvar == 'None' else groupvar
 
             incl_vars = request.form.getlist('options-included_variables')
 
