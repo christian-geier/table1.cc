@@ -13,7 +13,7 @@ from tableone import TableOne
 DROP_COLS = ['id', 'raw_id']
 
 
-def df_to_table(df, incl_vars, groupvar, pval, missing=False):
+def df_to_table(df, incl_vars, groupvar, pval, missing):
 
     df_cols = list(df)
 
@@ -75,7 +75,9 @@ def index():
 
             pval = request.form.get('options-pval', False)
 
-            my_table_html = df_to_table(frame, incl_vars, groupvar, pval)
+            show_missing = request.form.get('options-show_missing', False)
+
+            my_table_html = df_to_table(frame, incl_vars, groupvar, pval, missing=show_missing)
 
 
         return render_template('table1.html',

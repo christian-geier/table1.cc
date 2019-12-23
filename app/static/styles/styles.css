@@ -9,9 +9,6 @@ textarea {
   max-width: 100%;
   max-height: 20%;
 }
-form {
-  max-height: 600px;
-}
 
 input,
 input::placeholder {

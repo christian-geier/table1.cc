@@ -17,7 +17,7 @@
 {% block content %}
 
 <div id="wrap">
-  <div class="item1">
+  <div class="item1 col-12">
   {% if complete_form.paste_data %}
   <form method="post">
           {{ complete_form.paste_data.hidden_tag()}}
@@ -59,6 +59,8 @@
         <h5><b>Step 3:</b> Additional options:</h5>
         {{ complete_form.options.pval(checked=False)}}
         {{ complete_form.options.pval.label }}
+        {{ complete_form.options.show_missing(checked=False)}}
+        {{ complete_form.options.show_missing.label }}
         {% endif %}
         <hr>
       {{ complete_form.options.submit2() }}

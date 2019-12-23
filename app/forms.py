@@ -25,7 +25,8 @@ class SetOptionsForm(FlaskForm):
 
     submit2 = SubmitField('Make Table 1!')
 
-    pval = BooleanField('calculate p-Value')
+    pval = BooleanField('calculate p-values')
+    show_missing = BooleanField('show missing values')
 
 class CompleteForm(FlaskForm):
     paste_data = FormField(PasteForm)
