@@ -36,13 +36,15 @@
     <h5><b>Step 1:</b> Select Variables of Interest and select the Variable Type:</h5>
     <table>
       <tr>
+    <input type="checkbox" id="checkAll"> <b>Check All</b>
+    <hr />
     {% for subfield in complete_form.options.included_variables %}
 
           {% if loop.index0 % 5 == 0 %}
         </tr>
         <tr>
           {% endif %}
-          <td>{{ subfield(checked=True) }}</td>
+          <td>{{ subfield(checked=False) }}</td>
           <td><b>{{ subfield.label }}</b></td>
           <td>{{ complete_form.options.variable_type() }}<td>
     {% endfor %}
@@ -73,4 +75,14 @@
     {% endif %}
 
 
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+<script>
+$("#checkAll").click(function () {
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+</script>
 {% endblock %}
