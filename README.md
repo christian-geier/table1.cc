@@ -12,3 +12,6 @@
 - Format Variable Labels
 - Select Variable class
 - https support
+
+# Ideas
+- perhaps include weekly dev log about the development process on the blog

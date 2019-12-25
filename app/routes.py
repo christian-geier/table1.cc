@@ -10,17 +10,15 @@ from pandas import read_csv
 from tableone import TableOne
 
 
-DROP_COLS = ['id', 'raw_id']
-
-
-def df_to_table(df, incl_vars, groupvar, pval, labels, order, missing):
+def df_to_table(df, incl_vars, categorical, nonnormal, groupvar, pval, labels, order, missing):
 
     df_cols = list(df)
 
     # this is the list of columns for which Table 1 is generated
-    col_list = [df_col for df_col in incl_vars if df_col not in DROP_COLS]
+    col_list = [df_col for df_col in incl_vars]
 
     my_table = TableOne(df, columns=col_list, groupby=groupvar,
+                        nonnormal=nonnormal, categorical=categorical,
                         pval=pval, missing=missing, label_suffix=True,
                         rename=labels, order=order
                         )
@@ -34,8 +32,9 @@ def df_to_table(df, incl_vars, groupvar, pval, labels, order, missing):
 def index():
 
     complete_form = CompleteForm(request.form)
-    hide_display = False
     my_table_html = None
+    incl_var_types = request.form.getlist('options-variable_type', None)
+
 
     if (request.method == 'POST'):
         if complete_form.paste_data.validate_on_submit():
@@ -47,9 +46,8 @@ def index():
 
             frame = read_csv(raw_string, sep='\t')
 
-            rownames = list(frame)
+            rownames = [colname for colname in list(frame)]
 
-            c_vartypes = [(k, 'continuous') for k in rownames]
             c_varnames = [(k, k) for k in rownames]
 
             complete_form.options.included_variables.choices = c_varnames
@@ -76,6 +74,14 @@ def index():
 
             incl_vars = request.form.getlist('options-included_variables')
 
+            nonnormal = [var for i, var in enumerate(list(frame)) if (incl_var_types[i] == 'nonnormal' and var in incl_vars)]
+
+            categorical = [var for i, var in enumerate(list(frame)) if (incl_var_types[i] == 'cat' and var in incl_vars)]
+
+            print("Categorical: " + str(categorical))
+            print("Non-normal: " + str(nonnormal))
+
+
             pval = request.form.get('options-pval', False)
 
             show_missing = request.form.get('options-show_missing', False)
@@ -87,13 +93,14 @@ def index():
             # currently only allows to switch the grouping variable
             order = None if order_switch == False else { groupvar : ["1"]}
 
-            my_table_html = df_to_table(frame, incl_vars, groupvar, pval, labels, order, missing=show_missing)
+            my_table_html = df_to_table(frame, incl_vars, categorical, nonnormal, groupvar, pval, labels, order, missing=show_missing)
 
 
         return render_template('table1.html',
+            incl_var_types=incl_var_types,
             my_table_html=my_table_html,
             complete_form=complete_form,
-            hide_display=True
+            hide_display=True,
             )
 
 

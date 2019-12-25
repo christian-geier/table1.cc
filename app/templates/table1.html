@@ -40,13 +40,19 @@
     <hr />
     {% for subfield in complete_form.options.included_variables %}
 
+    {% set outer_loop = loop %}
+
           {% if loop.index0 % 5 == 0 %}
         </tr>
         <tr>
           {% endif %}
           <td>{{ subfield(checked=False) }}</td>
           <td><b>{{ subfield.label }}</b></td>
-          <td>{{ complete_form.options.variable_type() }}<td>
+          <td><select id="options-variable_type-{{ loop.index0 }}" name="options-variable_type">
+{% for x, y in complete_form.options.variable_type.choices %}
+    <option id="{{ outer_loop.index0}}-{{ loop.index0 }}" value="{{ x }}"{% if incl_var_types[outer_loop.index0] == x %} selected{% endif %}>{{ y }}</option>
+{% endfor %}
+</select><td>
     {% endfor %}
   </tr>
   </table>

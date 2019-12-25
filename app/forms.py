@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import TextAreaField, SubmitField, RadioField, SelectMultipleField, SelectField, FormField, BooleanField
+from wtforms import TextAreaField, SubmitField, RadioField, SelectField, SelectMultipleField, FormField, BooleanField
 from wtforms.validators import DataRequired, Length
 from wtforms.widgets import TextArea, ListWidget, CheckboxInput
 
@@ -23,7 +23,7 @@ class SetOptionsForm(FlaskForm):
     switch_group_order = BooleanField('switch group order')
 
     included_variables = MultiCheckboxField(choices=[], validators=[DataRequired()])
-    variable_type = SelectField(choices=[('cont', 'continuous'), ('cat', 'categorical'), ('nonnormal', 'non-normal')], validators = [DataRequired()])
+    variable_type = SelectField(choices=[('cont', 'continuous'), ('cat', 'categorical'), ('nonnormal', 'non-normal')])
 
     submit2 = SubmitField('Make Table 1!')
 
