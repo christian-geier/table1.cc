@@ -20,8 +20,10 @@ class PasteForm(FlaskForm):
 class SetOptionsForm(FlaskForm):
 
     grouping_variable = SelectField(choices=[], validators=[DataRequired()])
+    switch_group_order = BooleanField('switch group order')
+
     included_variables = MultiCheckboxField(choices=[], validators=[DataRequired()])
-    variable_type = SelectField(choices=[('cont', 'continuous'), ('cat', 'categorical')], validators = [DataRequired()])
+    variable_type = SelectField(choices=[('cont', 'continuous'), ('cat', 'categorical'), ('nonnormal', 'non-normal')], validators = [DataRequired()])
 
     submit2 = SubmitField('Make Table 1!')
 

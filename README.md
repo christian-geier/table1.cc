@@ -4,6 +4,8 @@
 
 # Upcoming Features
 
+- write an FAQ
+- jQuery coe to hide all unchecked checkboxes
 - add animated tutorial
 - add Twitter Link and account
 - Upload Excel Files
