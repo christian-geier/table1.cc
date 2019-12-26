@@ -15,3 +15,7 @@
 
 # Ideas
 - perhaps include weekly dev log about the development process on the blog
+
+
+# Feature Requests
+- Rounding - how many digits

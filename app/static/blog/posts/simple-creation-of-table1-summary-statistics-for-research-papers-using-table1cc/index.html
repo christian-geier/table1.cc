@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>My First Post</title>
-  <meta property="og:title" content="My First Post" />
-  <meta name="twitter:title" content="My First Post" />
+  <title>table1.cc Blog | Simple Creation of Summary Statistics for Research Papers</title>
+  <meta property="og:title" content="table1.cc Blog | Simple Creation of Summary Statistics for Research Papers" />
+  <meta name="twitter:title" content="table1.cc Blog | Simple Creation of Summary Statistics for Research Papers" />
   
 
   
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="table1.cc | Blog" />
-  <meta property="og:url" content="/blog/posts/my-first-post/" />
+  <meta property="og:url" content="/blog/posts/simple-creation-of-table1-summary-statistics-for-research-papers-using-table1cc/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -48,12 +48,12 @@
 
 <article class="p-article">
   <header>
-    <h1>My First Post</h1>
+    <h1>table1.cc Blog | Simple Creation of Summary Statistics for Research Papers</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2019-12-24T14:01:33-05:00">
-          Dec 24, 2019
+        <time datetime="2019-12-25T18:51:01-05:00">
+          Dec 25, 2019
         </time>
       </div>
       
@@ -61,7 +61,107 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
+    <p>Generating summary statistics is a common task in research and often requires iterative refinements. In this post we will demonstrate how to conveniently generate a <em>Table 1</em> used for research papers in an automated fashion. We will be using public data from a clinical trial by <em>Vickers et al.</em> (2004) which was published in the British Medical Journal (BMJ) on the use of acupuncture as a therapy for chronic headache. The PDF is available for download for free at the <a href="https://www.bmj.com/content/328/7442/744.full.pdf">BMJ website (link)</a>.</p>
+<p>As is customary, the authors provide a <em>Table 1</em> featuring baseline characteristics of the treatment and control groups.</p>
+<figure>
+    <img src="http://www.table1.cc/img/table1.png"
+         alt="Figure 1: Table 1 showing the baseline characteristics of a 2004 clinical trial by Vickers et al. which we will use as an example for this tutorial"/> <figcaption>
+            <p>Figure 1: <em>Table 1</em> showing the baseline characteristics of a 2004 clinical trial by <em>Vickers et al.</em> which we will use as an example for this tutorial</p>
+        </figcaption>
+</figure>
+
+<p>A copy of the raw trial data is available <a href="https://trialsjournal.biomedcentral.com/articles/10.1186/1745-6215-7-15#Sec18">here (link)</a> on the Springer website (Excel File Format).</p>
+<p>Using this data set we will walk through the steps on how to create a <em>Table 1</em> automatically, by making use of <a href="http://www.table1.cc">www.table1.cc</a>.</p>
+<p><em><em>Let's get started!</em></em></p>
+<h2 id="1-download-the-sample-trial-data">1. Download the sample trial data</h2>
+<ul>
+<li>Go to <a href="https://trialsjournal.biomedcentral.com/articles/10.1186/1745-6215-7-15#Sec18">https://trialsjournal.biomedcentral.com/articles/10.1186/1745-6215-7-15#Sec18</a> to download the trial raw data (excel format) or use the direct link here: <a href="https://static-content.springer.com/esm/art%3A10.1186%2F1745-6215-7-15/MediaObjects/13063_2006_152_MOESM1_ESM.xls">13063_2006_152_MOESM1_ESM.xls)</a></li>
+</ul>
+<h2 id="2-select-the-data-of-interest">2. Select the data of interest</h2>
+<ul>
+<li>Open the Excel file with MS Excel, LibreOffice or Google Calc
+<ul>
+<li>The Table 1 in the trial is based only on patients that are listed as <em>“completers”</em>. (Fig. 2)</li>
+<li>If you wish to recreate the exact same Table 1 select patients that are “completers”: In the tab &lsquo;Data&rsquo;, sort for &lsquo;completers&rsquo; and select all rows in which completer is ‘1’. This should be the case for 302 rows (including the header row).</li>
+<li>Feel free to use a different subset of the data set or your own data set if you would like to experiment with that</li>
+</ul>
+</li>
+<li>Copy the rows of interest into the clipboard by either pressing control+c or right clicking on the selection and selecting copy.</li>
+</ul>
+<figure>
+    <img src="http://www.table1.cc/img/select_rows.png"
+         alt="Figure 2. Selecting all rows (cases) who completed the 2004 clinical trial"/> <figcaption>
+            <p>Figure 2. Selecting all rows (cases) who completed the 2004 clinical trial</p>
+        </figcaption>
+</figure>
+
+<h2 id="3-go-to-table1cc-and-paste-the-content-of-the-clipboard">3. Go to table1.cc and paste the content of the clipboard</h2>
+<ul>
+<li>Right-click on the text field on the starting page and select <em>paste</em> (Fig. 3; orange box). Alternatively, you can press CTRL+V to paste the file.</li>
+<li>Next, click on <em>&lsquo;I pasted the spreadsheet data&rsquo;</em> (Fig. 3; red arrow)</li>
+</ul>
+<figure>
+    <img src="http://www.table1.cc/img/paste-data-annotated.png"
+         alt="Figure 3. How to paste data into table1.cc"/> <figcaption>
+            <p>Figure 3. How to paste data into table1.cc</p>
+        </figcaption>
+</figure>
+
+<h2 id="4-select-variables-of-interest-and-variable-types">4. Select variables of interest and variable types</h2>
+<ul>
+<li>You should see a message <em><em>Table parsed successfully</em></em> appear in a green box (Fig. 4)</li>
+<li>To recreate the original Table 1, check <em>age</em>, <em>sex</em>, <em>migraine</em> and <em>chronicity</em> as <em>&lsquo;variables of interest&rsquo;</em>
+<ul>
+<li>Feel free to experiment with other variables. For the example data set, their meaning can be found in the Excel file in the <em>Description of Variables</em> tab</li>
+</ul>
+</li>
+<li>For <em><em>age</em></em>, leave <em>continuous</em>. For <em><em>sex</em></em> and <em><em>migraine</em></em>, select <em>categorical</em>.</li>
+</ul>
+<figure>
+    <img src="http://www.table1.cc/img/data-parsed.png"
+         alt="Figure 4. Selecting variables of interest and variable types"/> <figcaption>
+            <p>Figure 4. Selecting variables of interest and variable types</p>
+        </figcaption>
+</figure>
+
+<h2 id="5-select-the-grouping-variable-and-confirm-to-create-the-table">5. Select the grouping variable and confirm to create the table</h2>
+<ul>
+<li>The <em>‘grouping variable’</em> stratifies the resulting table by a certain characteristic.
+<ul>
+<li>To recreate the original <em>Table 1</em>, select <em>group</em> (which distinguishes between intervention and control patients).</li>
+<li>Check <em>&ldquo;switch group order&rdquo;</em> to have the intervention group (1) appear before the controls (0)</li>
+</ul>
+</li>
+<li>Scroll down and click the <em>“Make Table 1!”</em> button</li>
+<li>Scroll down again and your <em>Table 1</em> with the selected variables of interests and the appropriate measures (mean, standard deviation, percentages) appears (Figure 5)</li>
+</ul>
+<figure>
+    <img src="http://www.table1.cc/img/result.png"
+         alt="Figure 5. Selecting variables of interest and variable types for your table 1"/> <figcaption>
+            <p>Figure 5. Selecting variables of interest and variable types for your table 1</p>
+        </figcaption>
+</figure>
+
+<ul>
+<li>Voilà, you just created summary statistics, fast and efficient !</li>
+</ul>
+<h2 id="6-adjust-and-fine-tune-formatting">6. Adjust and Fine tune formatting</h2>
+<ul>
+<li>Experiment with additional variables of interest, adding p-values, etc.;</li>
+<li>It is now very simple to add p values, missing values, and fine-tune the table to you needs</li>
+<li>You can also explore other grouping options to help understand your data
+<ul>
+<li>Selections of variables can be adjusted quickly, as the settings will carry forward</li>
+</ul>
+</li>
+</ul>
+<p>The caveat of the authors of the tableone Python package always applies:</p>
+<blockquote>
+<p>We encourage the use of tableone alongside other methods of descriptive statistics and, in particular, visualization to ensure appropriate data handling. [&hellip;] Guidance should be sought from a statistician when using <code>tableone</code> for a research study, especially prior to submitting the study for publication.</p>
+</blockquote>
+<p>Follow us on <a href="www.twitter.com/table1cc">Twitter (@table1cc)</a>  to stay up to date with new features or submit requests or questions.</p>
+<hr>
+
   </section>
   <footer>
     
