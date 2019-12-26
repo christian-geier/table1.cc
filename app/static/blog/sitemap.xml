@@ -3,22 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/blog/posts/</loc>
-    <lastmod>2019-12-25T18:51:01-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/posts/simple-creation-of-table1-summary-statistics-for-research-papers-using-table1cc/</loc>
-    <lastmod>2019-12-25T18:51:01-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2019-12-25T18:51:01-05:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/posts/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
   </url>
   
   <url>
