@@ -18,6 +18,10 @@ input::placeholder {
 
 }
 
+.img-container {
+     text-align: center;
+   }
+
 .item2 {
   margin-bottom: 20px;
   margin-top: 250px;
