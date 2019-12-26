@@ -16,18 +16,28 @@
 
   {% block content %}
 
-<h1>Welcome to table1.cc - Generate Your <i>Table 1</i> for research papers within <em>seconds</em>!</h1>
-
-<hr>
-
-  <h5><em>Try it out below with this </em><a href="https://static-content.springer.com/esm/art%3A10.1186%2F1745-6215-7-15/MediaObjects/13063_2006_152_MOESM1_ESM.xls">sample dataset:</a></h5>
-  <p>
-  Vickers AJ, Rees RW, Zollman CE, McCarney R, Smith CM, Ellis N, et al. <br><em>Acupuncture for chronic headache in primary care: large, pragmatic, randomised trial. BMJ. 2004 Mar 25;328(7442):744.</em>
-</p>
 
 
 
 <div id="wrap">
+<div class="col-12">
+  <h1>Welcome to table1.cc - Generate Your <i>Table 1</i> for research papers within <em>seconds</em>!</h1>
+
+    <span class="img-container">
+      <img src="/img/tutorial-table1.gif" alt="An animation demonstrating the use of table1.cc to generate a table 1 automatically">
+    </span>
+
+
+  <hr>
+
+    <h5><em>Try it out below with this </em><a href="https://static-content.springer.com/esm/art%3A10.1186%2F1745-6215-7-15/MediaObjects/13063_2006_152_MOESM1_ESM.xls">sample dataset:</a></h5>
+    <p>
+    Vickers AJ, Rees RW, Zollman CE, McCarney R, Smith CM, Ellis N, et al. <br><em>Acupuncture for chronic headache in primary care: large, pragmatic, randomised trial. BMJ. 2004 Mar 25;328(7442):744.</em>
+  </p>
+</div>
+
+
+
   <div class="item1">
 
   {% if complete_form.paste_data %}
@@ -64,14 +74,6 @@
         <hr>
   </form>
   {% endif %}
-
-
-  <blockquote class="blockquote">
-  <p class="mb-0"> While we have tried to use best practices in creating this package, automation of even basic statistical tasks can be unsound if done without supervision. We encourage use of tableone alongside other methods of descriptive statistics and, in particular, visualization to ensure appropriate data handling. [...] <em>Guidance should be sought from a statistician when using `tableone` for a research study, especially prior to submitting the study for publication.</em>
-  </p>
-    <footer class="blockquote-footer"><cite title="Source Title"><a href="https://pypi.org/project/tableone/">Authors of the 'tablone' Python module<a></cite></footer>
-  </blockquote>
-
 
   {% endblock content %}
 
