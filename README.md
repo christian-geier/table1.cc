@@ -2,6 +2,13 @@
 - Select Variables
 - 'Flash' when successfully uploading/parsing data
 
+# critical
+
+- redirect correct non-www to www
+  - write a short article
+- Better validation
+  - p-value checked without group should give appropriate feedback
+
 # Upcoming Features
 
 - write an FAQ

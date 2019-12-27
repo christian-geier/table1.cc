@@ -9,6 +9,17 @@ from pandas import read_csv
 
 from tableone import TableOne
 
+from urllib.parse import urlparse, urlunparse
+
+@app.before_request
+def redirect_nonwww():
+    """Redirect non-www requests to www."""
+    urlparts = urlparse(request.url)
+    if urlparts.netloc == 'table1.cc':
+        urlparts_list = list(urlparts)
+        urlparts_list[1] = 'www.table1.cc'
+        return redirect(urlunparse(urlparts_list), code=301)
+
 
 def df_to_table(df, incl_vars, categorical, nonnormal, groupvar, pval, labels, order, missing):
 
