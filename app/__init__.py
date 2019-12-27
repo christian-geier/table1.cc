@@ -6,11 +6,21 @@ from whitenoise import WhiteNoise
 
 from config import Config
 
+csp = {
+    'default-src': [
+        '\'self\'',
+        'https://cdn.jsdelivr.net',
+        'https://ajax.aspnetcdn.com'
+        'https://cdn.datatables.net',
+    ]
+}
+
 app = Flask(__name__)
+Talisman(app, feature_policy=csp, force_https_permanent=True)
+
 app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/static/', index_file=True)
 app.config.from_object(Config)
 
 bootstrap = Bootstrap(app)
-Talisman(app, force_https_permanent=True)
 
 from app import routes
