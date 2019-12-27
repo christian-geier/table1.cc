@@ -16,7 +16,7 @@ csp = {
 }
 
 app = Flask(__name__)
-Talisman(app, feature_policy=csp, force_https_permanent=True)
+Talisman(app, content_security_policy=csp, force_https_permanent=True)
 
 app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/static/', index_file=True)
 app.config.from_object(Config)
