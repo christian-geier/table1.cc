@@ -10,7 +10,7 @@ csp = {
     'default-src': [
         '\'self\'',
         'https://cdn.jsdelivr.net',
-        'https://ajax.aspnetcdn.com'
+        'https://ajax.aspnetcdn.com',
         'https://cdn.datatables.net',
     ]
 }
