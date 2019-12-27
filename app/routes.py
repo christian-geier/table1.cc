@@ -19,7 +19,7 @@ def redirect_nonwww():
         urlparts_list = list(urlparts)
         urlparts_list[1] = 'www.table1.cc'
 
-        urlparts_list[0] = 'https://'
+        urlparts_list[0] = 'https'
 
         return redirect(urlunparse(urlparts_list), code=301)
 
