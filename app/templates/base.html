@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     {% block styles %}
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
     <!-- Bootstrap CSS -->
     {{ bootstrap.load_css() }}
     <div>
@@ -31,10 +32,17 @@
   </head>
   <body>
     <!-- Your page content -->
-    <nav class="navbar fixed-top navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
       <a class="navbar-brand" href="/">table1.cc home</a>
-      <a class="navbar" href="{{ url_for('background')}}">Background</a>
-      <a class="navbar" href="/blog">Blog with tutorial</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{{ url_for('tutorial')}}">Tutorial</a>
+        <a class="nav-item nav-link" href="{{ url_for('faq')}}">FAQ</a>
+        <a class="nav-item nav-link" href="/blog">Blog</a>
+
+      </div>
     </nav>
 
     {% block content %}{% endblock %}

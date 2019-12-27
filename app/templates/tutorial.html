@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block head %}
   {{ super() }}
-  <meta name="description" content="Welcome to table1.cc - Generate Your Table 1 in seconds!
-  Born out of frustration & here to ease your pain. Simply Paste to generate 'Table 1' automatically for you.">
-  <meta name="keywords" content="Table 1, automate, scholar, population, publication, app">
+  <meta name="description" content="Smart Generation of Your Table 1 - Quickly and Reproducibly. Simply Paste to generate 'Table 1' automatically.">
+  <meta name="keywords" content="Table 1, automate, scholar, population, publication, app, R, Python, Pandas, Stata">
   <meta name="author" content="Christian Geier, MD">
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
-  <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <style type="text/css">
@@ -15,14 +13,42 @@
 {% endblock %}
 
 {% block content %}
-<h3>
-<strong><u>Tutorial coming soon</u></strong></h3>
 
-
+  <div class="container">
+    <div>
+    <h5>The animation below gives a quick overview on how to get started: <em>Simply copy and paste the spreadsheet data into the textfield on the starting page to get started and follow the instructions:</em></h5>
+    </div>
+  <span class="img-container">
+    <img src="/img/tutorial-table1-v2.gif" alt="An animation demonstrating the use of table1.cc to generate a table 1 automatically">
+  </span>
+</div>
+<p>
 <h4>
-<strong><u>Resources:</u></strong></h4>
-<a href="https://static-content.springer.com/esm/art%3A10.1186%2F1745-6215-7-15/MediaObjects/13063_2006_152_MOESM1_ESM.xls">Sample Trial Dataset</a> of a randomized trial
+<strong>Click here for an <a href="https://www.table1.cc/blog/posts/simple-creation-of-table1-summary-statistics-for-research-papers-using-table1cc/">in-depth tutorial</a>.</h4>
 
-Vickers AJ, Rees RW, Zollman CE, McCarney R, Smith CM, Ellis N, et al. Acupuncture for chronic headache in primary care: large, pragmatic, randomised trial. BMJ. 2004 Mar 25;328(7442):744.
+  <h4>You can also contact us on <a href="https://twitter.com/table1cc">Twitter</a> in case of questions.</strong>
+</h4>
+  <h2>
+  <strong><u>Additional Resources:</u></strong></h4>
+  <ul><em>Who is in this study, anyway? Guidelines for a useful Table 1.</em> Hayes-Larson E, Kezios KL, Mooney SJ, Lovasi G. Journal of Clinical Epidemiology. 2019 Oct 1;114:125–32.
+</ul>
 
+  <ul><a href="https://static-content.springer.com/esm/art%3A10.1186%2F1745-6215-7-15/MediaObjects/13063_2006_152_MOESM1_ESM.xls">Sample Trial Dataset</a> of a randomized trial
+
+  Vickers AJ, Rees RW, Zollman CE, McCarney R, Smith CM, Ellis N, et al. <em>Acupuncture for chronic headache in primary care: large, pragmatic, randomised trial.</em> BMJ. 2004 Mar 25;328(7442):744.</ul>
+
+</h2>
+<p>
+<h3>
+
+<p>
+<h3><strong><u>Important Note:</u></strong></h3>
+<p>
+<blockquote class="blockquote">
+<p class="mb-0"> While we have tried to use best practices in creating this package, automation of even basic statistical tasks can be unsound if done without supervision. We encourage use of tableone alongside other methods of descriptive statistics and, in particular, visualization to ensure appropriate data handling. [...] <em>Guidance should be sought from a statistician when using `tableone` for a research study, especially prior to submitting the study for publication.</em>
+</p>
+  <footer class="blockquote-footer"><cite title="Source Title"><a href="https://pypi.org/project/tableone/">Authors of the 'tablone' Python module<a></cite></footer>
+</blockquote>
+
+</h3>
 {% endblock %}

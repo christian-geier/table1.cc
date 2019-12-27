@@ -120,11 +120,13 @@ def index():
 
     return render_template('index.html', complete_form=complete_form, hide_display=False)
 
-
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
 
 @app.route('/background')
 def background():
-    return render_template('background.html')
+    return redirect(url_for('tutorial'),301)
 
 
 @app.route('/tutorial')
