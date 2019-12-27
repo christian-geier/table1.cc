@@ -13,11 +13,14 @@ from urllib.parse import urlparse, urlunparse
 
 @app.before_request
 def redirect_nonwww():
-    """Redirect non-www requests to www."""
+    """Redirect non-www requests to https://www"""
     urlparts = urlparse(request.url)
     if urlparts.netloc == 'table1.cc':
         urlparts_list = list(urlparts)
         urlparts_list[1] = 'www.table1.cc'
+
+        urlparts_list[0] = 'https://'
+
         return redirect(urlunparse(urlparts_list), code=301)
 
 
