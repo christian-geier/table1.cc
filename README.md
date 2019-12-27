@@ -1,6 +1,8 @@
 # Done
 - Select Variables
 - 'Flash' when successfully uploading/parsing data
+- https support
+- add animated tutorial
 
 # critical
 
@@ -11,14 +13,14 @@
 
 # Upcoming Features
 
-- write an FAQ
-- jQuery coe to hide all unchecked checkboxes
-- add animated tutorial
+- write an FAQ (in progress)
+- add an icon 
+- jQuery code to hide all unchecked checkboxes
 - add Twitter Link and account
 - Upload Excel Files
 - Format Variable Labels
 - Select Variable class
-- https support
+
 
 # Ideas
 - perhaps include weekly dev log about the development process on the blog
