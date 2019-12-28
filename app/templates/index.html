@@ -13,13 +13,16 @@
 
 
 <div id="wrap">
-<div class="col-12">
-  <h1>Table1.cc - Smart Creation of <i>Table 1</i>s for research papers!</h1>
 
-  <h5>
-    A simple web application that provides an intuitive and easy-to-use interface to assist in the reproducible generation of a <em>Table 1</em>. <br>
-    <strong>Watch a tutorial <a href="{{ url_for('tutorial')}}">here</a>!</strong>
-  </h5>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Table1.cc - Smart Creation of <i>Table 1</i>s for research papers!</h1>
+      <p class="lead">A simple web application featuring an intuitive, easy-to-use interface for the reproducible generation of a <em>Table 1</em></p>
+      <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('tutorial')}}" role="button">Watch a <strong>tutorial!</strong></a>
+  </p>
+    </div>
+  </div>
 
   <hr>
 
@@ -35,7 +38,7 @@
   {% if complete_form.paste_data %}
   <form method="post">
           {{ complete_form.paste_data.hidden_tag()}}
-          {{ complete_form.paste_data.excel_data(cols="99", rows="4", hidden=hide_display) }}
+          {{ complete_form.paste_data.excel_data(cols="", rows="7", hidden=hide_display) }}
           <br>
           {% for error in complete_form.paste_data.excel_data.errors %}
             <span style="color: red;">[{{ error }}]</span>

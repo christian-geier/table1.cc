@@ -9,14 +9,14 @@
     {% block styles %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='blog/css/styles.css') }}">
+    <!-- Bootstrap CSS -->
+    {{ bootstrap.load_css() }}
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
     <link rel="stylesheet" type= "text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <!-- Bootstrap CSS -->
-    {{ bootstrap.load_css() }}
     <div>
       {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
@@ -38,7 +38,7 @@
   </head>
   <body>
     <!-- Your page content -->
-    <nav class="navbar navbar-light fixed-top navbar-expand-md">
+    <nav class="navbar navbar-light navbar-expand-md">
       <a class="navbar-brand" href="/">table1.cc home</a>
         <div class="container">
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> ☰

@@ -124,6 +124,7 @@ def index():
 def faq():
     return render_template('faq.html')
 
+
 @app.route('/background')
 def background():
     return redirect(url_for('tutorial'),301)

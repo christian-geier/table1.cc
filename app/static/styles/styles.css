@@ -3,13 +3,15 @@
   padding: 0;
 }
 body {
-  padding: 80px;
+  margin: 10px;
   font-family: "Roboto Slab", serif;
   color: #333333;
 }
+
 textarea {
-  max-width: 100%;
-  max-height: 20%;
+  min-width: 100% !important;
+  box-sizing: border-box !important;
+  resize: none !important;
 }
 
 input,
@@ -18,18 +20,14 @@ input::placeholder {
     line-height: 3;
 }
 
-}
-
 .img-container {
      text-align: center;
    }
 
 .item2 {
   margin-bottom: 20px;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 20px;
 }
-
 
 .item3 {
   width: 55%;

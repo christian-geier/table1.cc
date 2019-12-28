@@ -13,7 +13,8 @@ csp = {
         'https://ajax.aspnetcdn.com',
         'https://cdn.datatables.net',
         'https://fonts.googleapis.com',
-        'https://stackpath.bootstrapcdn.com'
+        'https://stackpath.bootstrapcdn.com',
+        'https://fonts.gstatic.com'
     ]
 }
 
