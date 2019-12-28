@@ -1,0 +1,234 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>table1.cc | Simple Creation of Summary Statistics for Research Papers</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A simple web application which provides an easy-to-use interface to enable automated generation of a Table 1. The purpose is to make the power of R and Python intuitively accessible." />
+<meta name="author" content="Christian Geier, MD" /><meta property="og:title" content="Ensuring Effective Encryption on table1.cc" />
+<meta property="og:description" content="Ensuring effective encryption is a central design requirement for the confidential handling of potentially sensitive research data. Enforcing encryption of transmitted content is therefore a key priority in table1cc&#39;s design." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.table1.cc/blog/posts/ensuring-effective-encryption-on-table1cc/" />
+<meta property="article:published_time" content="2019-12-27T19:19:24-05:00" />
+<meta property="article:modified_time" content="2019-12-27T19:19:24-05:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ensuring Effective Encryption on table1.cc"/>
+<meta name="twitter:description" content="Ensuring effective encryption is a central design requirement for the confidential handling of potentially sensitive research data. Enforcing encryption of transmitted content is therefore a key priority in table1cc&#39;s design."/>
+
+<meta name="generator" content="Hugo 0.61.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="https://www.table1.cc/blog/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="https://www.table1.cc/blog/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://www.table1.cc/blog/">table1.cc | Simple Creation of Summary Statistics for Research Papers</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+      <p><em>Reproducible and Efficient Creation of &lsquo;Table 1&rsquo; tables for Research Papers</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Ensuring Effective Encryption on table1.cc</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2019-12-27T19:19:24-05:00">Dec 27, 2019</time>
+        </li>
+        
+        <li>
+            Categories:
+            <em>
+                
+                    
+                    <a href="https://www.table1.cc/blog/categories/encryption">encryption</a>
+                
+                    , 
+                    <a href="https://www.table1.cc/blog/categories/development">development</a>
+                
+                    , 
+                    <a href="https://www.table1.cc/blog/categories/website">website</a>
+                
+                    , 
+                    <a href="https://www.table1.cc/blog/categories/security">security</a>
+                
+                    , 
+                    <a href="https://www.table1.cc/blog/categories/heroku">heroku</a>
+                
+            </em>
+        </li>
+        
+
+        
+
+        <li>4 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>Ensuring effective encryption is a central design requirement for the confidential handling of potentially sensitive research data. Enforcing encryption of transmitted content is therefore a key priority in table1cc's design.</p>
+<figure>
+    <img src="https://www.table1.cc/img/https-example.png"
+         alt="Figure 1. Table1.cc uses the https protocol exclusively"/> <figcaption>
+            <p>Figure 1. Table1.cc uses the https protocol exclusively</p>
+        </figcaption>
+</figure>
+
+<p>This post is to highlight the journey taken to enforce encryption on the table1.cc website. It serves to highlight our security efforts and ensure transparency, as well as help other website owners wanting to achieve enforced encryption when using Heroku and Flask.</p>
+<h2 id="how-websites-communicate-with-your-web-browser">How websites communicate with your web browser:</h2>
+<p>There are at least four ways to access any given website, here using “example.org” as a generic example.</p>
+<ol>
+<li><a href="http://www.example.org">http://www.example.org</a></li>
+<li><a href="https://www.example.org">http<em>s</em>://www.example.org</a></li>
+<li><a href="http://example.org">http://example.org</a></li>
+<li><a href="https://example.org">http<em>s</em>://example.org</a></li>
+</ol>
+<p>As web users, we expect any of these addresses to <em>“just work”</em> at any time we type them into a browser and hit ENTER. Yet, on a technical level, these are four distinct web addresses that require individual routing and resolution.</p>
+<h2 id="the-significance-of--https--for-website-security">The significance of <em>http<em>s</em></em> for website security</h2>
+<p>The main distinction from a security standpoint for the user is as follows:</p>
+<ul>
+<li>Only the two <em>http<em>s</em></em> addresses provide an encrypted protocol and therefore enhance safety</li>
+<li>The http (without s) addresses are un-encrypted.</li>
+</ul>
+<p>This means as a website user, the use of <em>https</em> is clearly superior and should be used whenever possible.</p>
+<h2 id="how-to-ensure-that-https-is-used">How to ensure that https is used</h2>
+<p>Fortunately, a website owner has at least three ways potential methods to ensure that all traffic is routed via <em>https</em> via any of the following three layers.</p>
+<ol>
+<li>Redirection on the DNS (so called Domain Name Server) (This is the server provider)</li>
+<li>The web <em>server</em> that is responsible for serving the website (such as Apache or nginx) can initiate the redirect to https</li>
+<li>The web application</li>
+</ol>
+<h2 id="limitations-of-dns-1-layer-and-web-server-2-layer-approaches">Limitations of DNS (1. Layer) and web server (2. Layer) approaches</h2>
+<p>It is generally recommended to use either the DNS server or web server layer should be used to ensure https redirects. However these two options come with  limitations that ultimately did not make them a viable option for table1.cc:</p>
+<p>This is an increasingly relevant topic as the importance of https has been rising in recent years.</p>
+<p>The table1.cc app runs on a web platform called Heroku a service platform that enables rapid development and improvement. Heroku is a Platform-as-a-service and comes with security enhancements out of the box. Despite these benefits, one challenge in enforcing encryption was of the virtual nature of this platform that limits the ability to access redirection. <a href="https://help.heroku.com/NH44MODG/my-root-domain-isn-t-working-what-s-wrong"><em>Heroku documentation for details</em></a></p>
+<p>To make matters even more complex, in 2017/2018 Heroku implemented changes to its infrastructure that simplified enabling encryption but rendered previous redirect methods ineffective. A large number of and search hits on Google, StackOverflow, and many other knowledge bases are unfortunately no longer applicable.</p>
+<p>To summarize:</p>
+<ol>
+<li>To redirect traffic from one <em>https</em> to another <em>https</em> domain consistently, the DNS server would require access to a separate https certificate for the address (given that all addresses are handled separately) Since DNS servers do not usually have access to a given website’s encryption certificate, the redirect attempt fails.</li>
+<li>The web server level requires access to the web server. However, Heroku utilizes an ‘ephemeral’ file system and other restrictions, that while generally advantageous preclude this option limits the ability to</li>
+</ol>
+<h2 id="how-to-ensure-consistent-https-encryption-with-heroku-and-flask-in-2020">How to ensure consistent https encryption with Heroku and Flask in 2020</h2>
+<p>Ultimately, the solution involved rerouting all web traffic on the application level (3rd layer). While this is somewhat more computationally intensive (and therefore more costly), this was ultimately the preferred because it is the safest method for our users.</p>
+<h3 id="here-is-how-the-implementation-works-in-case-this-is-useful-for-other-heroku-and-flask-users">Here is how the implementation works in case this is useful for other Heroku and Flask users:</h3>
+<p>Based on a StackOverflow post by user <em>Danilo Bargen</em> <a href="https://stackoverflow.com/questions/9766134/how-do-i-redirect-to-the-www-version-of-my-flask-site-on-heroku">here</a>.
+The code was updated to reflect changes in Python3:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#f92672">from</span> urllib.parse <span style="color:#66d9ef">import</span> urlparse, urlunparse
+
+<span style="color:#a6e22e">@app</span><span style="color:#f92672">.</span>before_request
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">redirect_nonwww</span>():
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">Redirect non-www requests to www.</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+    urlparts <span style="color:#f92672">=</span> urlparse(request<span style="color:#f92672">.</span>url)
+    <span style="color:#66d9ef">if</span> urlparts<span style="color:#f92672">.</span>netloc <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">example.com</span><span style="color:#e6db74">&#39;</span>:
+        urlparts_list <span style="color:#f92672">=</span> list(urlparts)
+        urlparts_list[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">www.example.com</span><span style="color:#e6db74">&#39;</span>
+        <span style="color:#66d9ef">return</span> redirect(urlunparse(urlparts_list), code<span style="color:#f92672">=</span><span style="color:#ae81ff">301</span>)</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="redirection-scheme-on-table1cc">Redirection scheme on table1.cc</h2>
+<p>This table shows the current routing scheme for the four possible combinations of https and www / non-www URLs.</p>
+<table>
+<thead>
+<tr>
+<th>Entered address</th>
+<th>Redirects to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://table1.cc">http://table1.cc</a></td>
+<td><a href="https://www.table1.cc">https://www.table1.cc</a></td>
+</tr>
+<tr>
+<td><a href="http://www.table.cc">http://www.table.cc</a></td>
+<td><a href="https://www.table1.cc">https://www.table1.cc</a></td>
+</tr>
+<tr>
+<td><a href="https://www.table1.cc">https://www.table1.cc</a></td>
+<td><a href="https://www.table1.cc">https://www.table1.cc</a></td>
+</tr>
+<tr>
+<td><a href="https://table1.cc">https://table1.cc</a></td>
+<td><a href="https://www.table1.cc">https://www.table1.cc</a></td>
+</tr>
+</tbody>
+</table>
+<p>Table 1: How redirects on table1.cc enforce reliable encryption</p>
+<h2 id="bottom-line">Bottom line</h2>
+<p>No matter which of the four addresses is entered when using table1.cc: All traffic to and from table1.cc is encrypted via https/SSL so you can always feel confident that your data is transported encrypted. To verify this, you can look for the &ldquo;lock&rdquo; symbol in the taskbar of your web browser as seen in Fig 1.</p>
+<p>Expect more updates on new table1.cc features in the near future.</p>
+<p>If you are curious, give it a try <a href="https://www.table1.cc">here</a> and follow us on Twitter <a href="https://twitter.com/table1cc">here</a>.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://www.table1.cc/blog/posts/simple-creation-of-table1-summary-statistics-for-research-papers-using-table1cc/"><i class="fa fa-chevron-circle-left"></i> table1.cc | Simple Creation of Summary Statistics for Research Papers</a>
+        </li>
+        
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2019 - table1.cc</h6>
+    </footer>
+</div>
+<script src="https://www.table1.cc/blog/js/scripts.js"></script>
+
+</body>
+
+</html>
+
