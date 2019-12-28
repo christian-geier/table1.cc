@@ -120,6 +120,11 @@ def index():
 
     return render_template('index.html', complete_form=complete_form, hide_display=False)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 @app.route('/faq')
 def faq():
     return render_template('faq.html')
