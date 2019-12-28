@@ -12,6 +12,7 @@ csp = {
         'https://cdn.jsdelivr.net',
         'https://ajax.aspnetcdn.com',
         'https://cdn.datatables.net',
+        'https://fonts.googleapis.com'
     ]
 }
 

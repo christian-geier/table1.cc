@@ -4,6 +4,8 @@
 }
 body {
   padding: 80px;
+  font-family: "Roboto Slab", serif;
+  color: #333333;
 }
 textarea {
   max-width: 100%;
