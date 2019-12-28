@@ -9,6 +9,10 @@
     {% block styles %}
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='blog/css/styles.css') }}">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
     <!-- Bootstrap CSS -->
     {{ bootstrap.load_css() }}
     <div>
