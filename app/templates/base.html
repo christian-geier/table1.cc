@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='blog/css/styles.css') }}">
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+    <link rel="stylesheet" type= "text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
@@ -37,6 +38,28 @@
   </head>
   <body>
     <!-- Your page content -->
+    <nav class="navbar navbar-light fixed-top navbar-expand-md">
+      <a class="navbar-brand" href="/">table1.cc home</a>
+        <div class="container">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> ☰
+            </button>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <a class="nav-item nav-link" href="{{ url_for('tutorial')}}">Tutorial</a>
+                    <a class="nav-item nav-link" href="{{ url_for('faq')}}">FAQ</a>
+                    <a class="nav-item nav-link" href="/blog">Blog</a>
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    <li>
+                        <a href="https://twitter.com/table1cc" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+<!--
     <nav class="navbar navbar-expand-lg fixed-top navbar-light">
       <a class="navbar-brand" href="/">table1.cc home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,8 +70,14 @@
         <a class="nav-item nav-link" href="{{ url_for('faq')}}">FAQ</a>
         <a class="nav-item nav-link" href="/blog">Blog</a>
 
+        <ul class="nav navbar-nav ml-auto">
+    <li>
+        <a href="#" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a>
+    </li>
+        </ul>
+
       </div>
-    </nav>
+    </nav> -->
 
     {% block content %}{% endblock %}
 
