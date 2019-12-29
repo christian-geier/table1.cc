@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   margin: 10px;
   font-family: "Roboto Slab", serif;
@@ -15,7 +16,8 @@ textarea {
 }
 
 input[type=checkbox] {
-    max-width: 4px !important;
+    min-width: 8px !important;
+    max-width: 16px !important;
 }
 
 .img-container {

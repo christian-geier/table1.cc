@@ -40,6 +40,7 @@ class SetOptionsForm(FlaskForm):
             return False
         return True
 
+
 class CompleteForm(FlaskForm):
     paste_data = FormField(PasteForm)
     options = FormField(SetOptionsForm)
