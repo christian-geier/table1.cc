@@ -25,11 +25,10 @@
 {% if complete_form.options %}
     {{complete_form.options.hidden_tag()}}
     {% if complete_form.options.grouping_variable.choices != [] %}
-
     <h5><b>Step 1:</b> Select Variables of Interest and select the Variable Type:</h5>
     <table>
       <tr>
-    <input type="checkbox" id="checkAll"> <b>Check All</b>
+    <!-- <input type="checkbox" id="checkAll"> <b>Check All</b> -->
     <hr />
     {% for subfield in complete_form.options.included_variables %}
 

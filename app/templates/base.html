@@ -17,27 +17,11 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <div>
-      {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for category, message in messages %}
-                {% if category == 'message' %}
-                  <div class="alert alert-warning" role="alert">
-                {% else %}
-                  <div class="alert alert-{{ category }}" role="alert">
-                {% endif %}
-                  {{ message }}
-                </div>
-            {% endfor %}
-          {% endif %}
-      {% endwith %}
-    </div>
-    {% endblock %}
-
-    {% endblock %}
+    {% endblock styles %}
+    {% endblock head %}
   </head>
   <body>
-    <!-- Your page content -->
+<header>
     <nav class="navbar navbar-light navbar-expand-md">
       <a class="navbar-brand" href="/">table1.cc home</a>
         <div class="container">
@@ -59,6 +43,23 @@
             <!--/.nav-collapse -->
         </div>
     </nav>
+
+    <div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'message' %}
+                  <div class="alert alert-warning" role="alert">
+                {% else %}
+                  <div class="alert alert-{{ category }}" role="alert">
+                {% endif %}
+                  {{ message }}
+                </div>
+            {% endfor %}
+          {% endif %}
+      {% endwith %}
+    </div>
+</header>
 
 <!--
     <nav class="navbar navbar-expand-lg fixed-top navbar-light">

@@ -14,10 +14,8 @@ textarea {
   resize: none !important;
 }
 
-input,
-input::placeholder {
-    font-size: 20px;
-    line-height: 3;
+input[type=checkbox] {
+    max-width: 4px !important;
 }
 
 .img-container {
