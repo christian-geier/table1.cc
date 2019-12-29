@@ -30,6 +30,9 @@
       <tr>
     <!-- <input type="checkbox" id="checkAll"> <b>Check All</b> -->
     <hr />
+    {% for error in complete_form.options.included_variables.errors %}
+      <div class="alert alert-danger" role="alert">{{ error }}</div>
+    {% endfor %}
     {% for subfield in complete_form.options.included_variables %}
 
     {% set outer_loop = loop %}
@@ -52,6 +55,9 @@
 
   <h5><b>Step 2:</b> Select Grouping Variable:</h5>
   {{ complete_form.options.grouping_variable() }}
+  {% for error in complete_form.options.grouping_variable.errors %}
+    <div class="alert alert-danger" role="alert">{{ error }}</div>
+  {% endfor %}
   {{ complete_form.options.switch_group_order() }}
   {{ complete_form.options.switch_group_order.label }}
   <hr>

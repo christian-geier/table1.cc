@@ -74,7 +74,7 @@ def index():
             hide_display = True
 
 
-        if request.form.get('options-submit2') is not None:
+        if request.form.get('options-submit2') is not None and complete_form.options.validate_on_submit():
 
             raw_data = request.form['paste_data-excel_data']
             raw_string = StringIO(raw_data)
