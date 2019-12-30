@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>table1.cc | Examples</title>
+{{ super() }}
+
+{% block style %}
+<style>
+table {
+    display: table;
+    width: 250px;
+    table-layout: fixed !important;
+}
+
+div > div {
+    display: table-cell;
+    width: 2%; /* or 100% according to OP comment. See edit about Safari 6 below */
+}
+
+img {
+  display: block !important;
+}
+</style>
+{% endblock %}
+
+{% endblock %}
+
+{% block content %}
+<body>
+<div class="container col-12">
+
+<div class="item1 col-12">
+
+<table>
+<tr>
+  <td>
+  <div class="col-6">
+    <img src="/img/table1.png"/>
+  </div>
+  </td>
+  <td>
+  <div class="col-6">
+    <img src="/img/examples/1c-vickers-table1cc-edited.png"/>
+  </div>
+  </td>
+</tr>
+</table>
+</div>
+<caption>Comparison of the published Table 1 by Vickers <em>et al.</em>, table1.cc raw output (b), and table1.cc with minimal editing.</caption>
+</body>
+{% endblock %}
