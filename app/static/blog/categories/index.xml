@@ -6,9 +6,172 @@
    <description>Recent content in Categories on table1.cc | Simple Creation of Summary Statistics for Research Papers</description>
    <generator>Hugo -- gohugo.io</generator>
    <copyright>Copyright &amp;copy; 2019 - table1.cc</copyright>
+   <lastBuildDate>Sun, 29 Dec 2019 17:58:48 -0500</lastBuildDate>
    
        <atom:link href="https://www.table1.cc/blog/categories/index.xml" rel="self" type="application/rss+xml" />
    
+   
+     <item>
+       <title>Better Research Productivity and Reproducibility Through Table1 Automation</title>
+       <link>https://www.table1.cc/blog/posts/better-research-productivity-and-reproducibility-through-table1-automation/</link>
+       <pubDate>Sun, 29 Dec 2019 17:58:48 -0500</pubDate>
+       
+       <guid>https://www.table1.cc/blog/posts/better-research-productivity-and-reproducibility-through-table1-automation/</guid>
+       <description>&lt;meta name=&#34;twitter:image&#34; content=&#34;https://www.table1.cc/img/table1cc-interface-6.png&#34; /&gt;
+&lt;p&gt;This article is part of a series to review the inner workings of table1.cc, the website designed to help you handle the Table 1 generation process with more productivity and confidence. Here, we will briefly review the history of &lt;em&gt;Table 1 automation&lt;/em&gt; and discuss the considerations when applying it. We will then generate step-by-step a ‘Table 1’ using the table1.cc website and publicly available data. Finally, we will compare its characteristics in terms of ease and speed with alternative approaches using R/Python packages thus highlighting its potential utility in streamlining the analytic process.&lt;/p&gt;
+&lt;p&gt;Ultimately, in the following articles of the series, we will discuss the inner workings of the table1.cc web application during this process.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;So let’s get started!&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;a-brief-history-of-table-1-automation&#34;&gt;A brief history of Table 1 automation&lt;/h1&gt;
+&lt;p&gt;On February 8, 2014 Kazuki Yoshida released &lt;a href=&#34;https://cran.r-project.org/web/packages/tableone/NEWS&#34;&gt;tableone version 0.1.0&lt;/a&gt;. Tableone is a R package focused on Command Line Interface (CLI - a text-based display mode in which the user enters commands and data) users of the R programming language based on &lt;a href=&#34;https://github.com/kaz-yos/tableone&#34;&gt;Kazuki&#39;s Github Page&lt;/a&gt;. This R package has been highly influential, spawning a series of complimentary packages for the R programming language that can be accessed on the mentioned website.&lt;/p&gt;
+&lt;p&gt;On May 17, 2017 that development culminated in the release of a homonymous Python module with similar functionality by &lt;em&gt;Tom J Pollard, Alistair E W Johnson, Jesse D Raffa, Roger G Mark&lt;/em&gt; thus enabling automated Table 1 creation on the two main statistical programming universes: &lt;em&gt;Python/Pandas&lt;/em&gt; and &lt;em&gt;R&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;It is notable that the original inspiration for the command line approaches came from a pioneering module Deducer &lt;a href=&#34;https://crantastic.org/packages/Deducer&#34;&gt;https://crantastic.org/packages/Deducer&lt;/a&gt;. &lt;em&gt;Deducer&lt;/em&gt;, first released in 2009 by &lt;a href=&#34;https://crantastic.org/authors/880&#34;&gt;Ian Fellows&lt;/a&gt; provided a Java-based graphical user interfaced aimed to make R increasingly accessible.&lt;/p&gt;
+&lt;br&gt;
+&lt;div class=&#34;imageblock&#34;&gt;
+&lt;div class=&#34;content&#34;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Solution&lt;/th&gt;
+&lt;th&gt;Initial Release&lt;/th&gt;
+&lt;th&gt;Platform&lt;/th&gt;
+&lt;th&gt;Input&lt;/th&gt;
+&lt;th&gt;Output&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Deducer&lt;/td&gt;
+&lt;td&gt;circa 2009&lt;/td&gt;
+&lt;td&gt;R (programming language)&lt;/td&gt;
+&lt;td&gt;Graphical (Java)&lt;/td&gt;
+&lt;td&gt;R based&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tableone (R)&lt;/td&gt;
+&lt;td&gt;February 8, 2014&lt;/td&gt;
+&lt;td&gt;R (programming language)&lt;/td&gt;
+&lt;td&gt;Command line based (R)&lt;/td&gt;
+&lt;td&gt;R based&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tableone (Python)&lt;/td&gt;
+&lt;td&gt;May 17, 2017&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;Command line based (R)&lt;/td&gt;
+&lt;td&gt;Python based&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.table1.cc&#34;&gt;&lt;strong&gt;table1.cc&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;December 22, 2019&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Graphical&lt;/strong&gt; (web based)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Graphical&lt;/strong&gt; (web based)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&#34;title&#34;&gt;Development of Table 1 automation solutions over time.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h1 id=&#34;the-utility-of-automation&#34;&gt;The utility of automation&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“To create the Table 1 sometimes it can be very time-consuming. Imagine if we have 10 variables (e.g. age, gender.. etc) for 3 groups, and for each variable we compute mean (standard deviation) and a number of participants (proportion); in the end, we have to fill 60 numbers in the table. Moreover, we usually export the table from R to Microsoft Word, and we can be prone to making mistakes if we’re copy/pasting.”&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;—Klodian Dhana (creator of datascienceplus.com)&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This quote excellently sums up the important reasons for automation and the datascienceplus website does provide excellent resources to enable automated Table 1 generation via the use of &lt;em&gt;R&lt;/em&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;limits-of-command-line-approaches&#34;&gt;Limits of command line approaches&lt;/h1&gt;
+&lt;p&gt;While the datascienceplus website provides excellent resources many concepts, the following comments highlight the complicated nature of getting Table 1 automation to &lt;em&gt;just work&lt;/em&gt;:&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/limitations-of-r-1.png&#34;
+         alt=&#34;Figure 1. An example of a data scientist with difficulties (source: datascienceplus.com website)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1. An example of a data scientist with difficulties (source: datascienceplus.com website)&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/limitations-of-r-syntax.png&#34;
+         alt=&#34;Figure 2. Another examples of complex syntax being a barrier to simple automation (source: datascienceplus.com)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 2. Another examples of complex syntax being a barrier to simple automation (source: &lt;a href=https://www.datascienceplus.com&gt;datascienceplus.com)&lt;/a&gt;&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Please keep in mind that this is focused to data scientists rather than a general scientific audience, so more accessible interfaces are needed.&lt;/p&gt;
+&lt;p&gt;The resulting table is functional, as seen below.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/table1_screenshot-datascienceplus.jpg&#34;
+         alt=&#34;Figure 3. The resulting Table (source: datascienceplus.com)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 3. The resulting Table (source: &lt;a href=https://datascienceplus.com/table-1-and-the-characteristics-of-study-population/&gt;datascienceplus.com)&lt;/a&gt;&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&#34;how-table1cc-is-different&#34;&gt;How table1.cc is different&lt;/h1&gt;
+&lt;p&gt;Creating an automated &lt;em&gt;Table 1&lt;/em&gt; using table1.cc is easy using the following procedure:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://datascienceplus.com/wp-content/uploads/2016/02/dt_simulated.csv&#34;&gt;sample data set&lt;/a&gt; (courtesy of Klodian Dhana, datascienceplus.com)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the data set and paste contents (Figure 4)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/table1cc-interface-2.png&#34;
+         alt=&#34;Figure 4. The table1.cc landing page. Simply paste clipboard into the text box (red), then click on &amp;amp;lsquo;I pasted the spreadsheet data&amp;amp;rsquo; (green arrow)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 4. The table1.cc landing page. Simply paste clipboard into the text box (red), then click on &amp;lsquo;I pasted the spreadsheet data&amp;rsquo; (green arrow)&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Next, you will advance to the following section and see a green notification &amp;ldquo;Table parsed successfully!&amp;rdquo; (Figure 5). On this page, tick all checkboxes, select the variable type as shown (green box)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/table1cc-interface-3.png&#34;
+         alt=&#34;Figure 5a. The table1.cc website after pasting and submitting the simulated data set. Select variables of interest in the green box. You can stratify your table by selecting a grouping variable (purple arrow)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 5a. The table1.cc website after pasting and submitting the simulated data set. Select variables of interest in the green box. You can stratify your table by selecting a grouping variable (purple arrow)&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;You can now select the grouping variable. In the field &amp;ldquo;Select Grouping Variable&amp;rdquo; select &amp;ldquo;gender&amp;rdquo;. Then click on &amp;ldquo;Make Table 1&amp;rdquo; (Figure 5b, red arrow)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/table1cc-interface-4.png&#34;
+         alt=&#34;Figure 5b. Table1.cc allows to easily switch you grouping variable (red box). Confirm by clicking the button labeled &amp;amp;lsquo;Make Table 1!&amp;amp;rsquo; (red arrow)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 5b. Table1.cc allows to easily switch you grouping variable (red box). Confirm by clicking the button labeled &amp;lsquo;Make Table 1!&amp;rsquo; (red arrow)&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;After you clicked on this button, you will see the resulting table, already formatted, almost instantly. You may modify your options to perfect its appearance for your individual requirements. For instance, you may elect to calculate the appropriate p-Values and decide to omit the gender variable, since it is also the grouping variable. (Figure 5c)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/table1cc-interface-6.png&#34;
+         alt=&#34;Figure 5c. You can easily edit the appearance of the table by unchecking &amp;amp;lsquo;gender&amp;amp;rsquo;, checking &amp;amp;lsquo;calculate p-Values&amp;amp;rsquo; (purple boxes). Confirm your changes by clicking on &amp;amp;lsquo;Make Table 1&amp;amp;rsquo; once again (green arrow)&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 5c. You can easily edit the appearance of the table by unchecking &amp;lsquo;gender&amp;rsquo;, checking &amp;lsquo;calculate p-Values&amp;rsquo; (purple boxes). Confirm your changes by clicking on &amp;lsquo;Make Table 1&amp;rsquo; once again (green arrow)&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;You have successfully generated a Table 1 from scratch. Rather than the tedious manual process relying on repetitive copy and paste, your Table 1 is generated accurately and fast. Depending on you speed of mouse movement, you can complete all steps within less than 60 seconds.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/table1cc-interface-5.png&#34;
+         alt=&#34;Figure 6. The final Table 1, generated automatically from the sample data set&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 6. The final Table 1, generated automatically from the sample data set&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;bottom-line&#34;&gt;Bottom line&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do what you can do best, automate the rest!&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;—Motto of table1.cc&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Software utilities to automate Table 1 generation have advanced dramatically and now allow for reliable and intuitive interaction using platforms such was table1.cc.&lt;/p&gt;
+&lt;p&gt;These new technologies allow to save time and effort and increased focus on your underlying research interests.&lt;/p&gt;
+&lt;p&gt;In the following upcoming article of the series will focus on the inner workings of the table1.cc web application and the transformations along the way using the same example data set.&lt;/p&gt;
+&lt;p&gt;Table1.cc is free of charge for researchers if you are curious. Give it a try &lt;a href=&#34;https://www.table1.cc&#34;&gt;here&lt;/a&gt; and follow us on Twitter &lt;a href=&#34;https://twitter.com/table1cc&#34;&gt;@table1cc&lt;/a&gt;.&lt;/p&gt;
+</description>
+     </item>
    
      <item>
        <title>Ensuring Effective Encryption on table1.cc</title>
