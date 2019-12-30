@@ -6,10 +6,9 @@ from app import app
 from io import StringIO
 
 from pandas import read_csv
-
 from tableone import TableOne
-
 from urllib.parse import urlparse, urlunparse
+
 
 @app.before_request
 def redirect_nonwww():
