@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="A simple web application which provides an easy-to-use interface to enable automated generation of a Table 1. The purpose is to make the power of R and Python intuitively accessible." />
-<meta name="author" content="Christian Geier, MD" /><meta property="og:title" content="Better Research Productivity and Reproducibility Through Table1 Automation" />
+<meta name="author" content="Christian Geier, MD" /><meta property="og:title" content="Better Research Productivity and Reproducibility Through Table 1 Automation" />
 <meta property="og:description" content="This article is part of a series to review the inner workings of table1.cc, the website designed to help you handle the Table 1 generation process with more productivity and confidence." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.table1.cc/blog/posts/better-research-productivity-and-reproducibility-through-table1-automation/" />
@@ -15,13 +15,13 @@
 <meta property="article:modified_time" content="2019-12-29T17:58:48-05:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Better Research Productivity and Reproducibility Through Table1 Automation"/>
+<meta name="twitter:title" content="Better Research Productivity and Reproducibility Through Table 1 Automation"/>
 <meta name="twitter:description" content="This article is part of a series to review the inner workings of table1.cc, the website designed to help you handle the Table 1 generation process with more productivity and confidence."/>
 
 <meta name="generator" content="Hugo 0.61.0" />
     
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
-  <link rel='stylesheet' href='https://www.table1.cc/blog/Page%28/categories/automation%29'>
+  <link rel='stylesheet' href='https://www.table1.cc/blog/Page%28/posts%29'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" type= "text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="icon" type="image/png" sizes="16x16" href="https://www.table1.cc/favicon-16x16.png">
@@ -78,7 +78,7 @@
 
 <article>
 
-    <h1>Better Research Productivity and Reproducibility Through Table1 Automation</h1>
+    <h1>Better Research Productivity and Reproducibility Through Table 1 Automation</h1>
 
     
         <aside>
@@ -87,32 +87,31 @@
             <time class="post-date" datetime="2019-12-29T17:58:48-05:00">Dec 29, 2019</time>
         </li>
         
+
+        
         <li>
-            Categories:
             <em>
                 
                     
-                    <a href="https://www.table1.cc/blog/categories/technology">technology</a>
+                    <a href="https://www.table1.cc/blog/tags/technology">#technology</a>
                 
                     , 
-                    <a href="https://www.table1.cc/blog/categories/automation">automation</a>
+                    <a href="https://www.table1.cc/blog/tags/automation">#automation</a>
                 
                     , 
-                    <a href="https://www.table1.cc/blog/categories/tableone">tableone</a>
+                    <a href="https://www.table1.cc/blog/tags/tableone">#tableone</a>
                 
                     , 
-                    <a href="https://www.table1.cc/blog/categories/tutorial">tutorial</a>
+                    <a href="https://www.table1.cc/blog/tags/tutorial">#tutorial</a>
                 
                     , 
-                    <a href="https://www.table1.cc/blog/categories/usability">usability</a>
+                    <a href="https://www.table1.cc/blog/tags/usability">#usability</a>
                 
                     , 
-                    <a href="https://www.table1.cc/blog/categories/history">history</a>
+                    <a href="https://www.table1.cc/blog/tags/history">#history</a>
                 
             </em>
         </li>
-        
-
         
 
         <li>5 minutes read</li>
@@ -126,9 +125,9 @@
 <p>Ultimately, in the following articles of the series, we will discuss the inner workings of the table1.cc web application during this process.</p>
 <p><em>So let’s get started!</em></p>
 <h1 id="a-brief-history-of-table-1-automation">A brief history of Table 1 automation</h1>
-<p>On February 8, 2014 Kazuki Yoshida released <a href="https://cran.r-project.org/web/packages/tableone/NEWS">tableone version 0.1.0</a>. Tableone is a R package focused on Command Line Interface (CLI - a text-based display mode in which the user enters commands and data) users of the R programming language based on <a href="https://github.com/kaz-yos/tableone">Kazuki's Github Page</a>. This R package has been highly influential, spawning a series of complimentary packages for the R programming language that can be accessed on the mentioned website.</p>
+<p>On February 8, 2014 Kazuki Yoshida released <a href="https://cran.r-project.org/web/packages/tableone/NEWS">tableone version 0.1.0</a>. <em>Tableone</em> is a R package focused on Command Line Interface (CLI — a text-based display mode in which the user enters commands and data) users of the R programming language based on <a href="https://github.com/kaz-yos/tableone">Kazuki's Github Page</a>. This R package has been highly influential, spawning a series of complimentary packages for the R programming language that can be accessed on the above mentioned website.</p>
 <p>On May 17, 2017 that development culminated in the release of a homonymous Python module with similar functionality by <em>Tom J Pollard, Alistair E W Johnson, Jesse D Raffa, Roger G Mark</em> thus enabling automated Table 1 creation on the two main statistical programming universes: <em>Python/Pandas</em> and <em>R</em>.</p>
-<p>It is notable that the original inspiration for the command line approaches came from a pioneering module Deducer <a href="https://crantastic.org/packages/Deducer">https://crantastic.org/packages/Deducer</a>. <em>Deducer</em>, first released in 2009 by <a href="https://crantastic.org/authors/880">Ian Fellows</a> provided a Java-based graphical user interfaced aimed to make R increasingly accessible.</p>
+<p>It is notable that the original inspiration for the command line approaches came from a pioneering module <em>Deducer</em> <a href="https://crantastic.org/packages/Deducer">https://crantastic.org/packages/Deducer</a>. <em>Deducer</em>, first released in 2009 by <a href="https://crantastic.org/authors/880">Ian Fellows</a>, provided a Java-based graphical user interface aimed to make <em>R</em> increasingly accessible to the general scientific community.</p>
 <br>
 <div class="imageblock">
 <div class="content">
@@ -184,7 +183,7 @@
 </blockquote>
 <p>This quote excellently sums up the important reasons for automation and the datascienceplus website does provide excellent resources to enable automated Table 1 generation via the use of <em>R</em>.</p>
 <h1 id="limits-of-command-line-approaches">Limits of command line approaches</h1>
-<p>While the datascienceplus website provides excellent resources many concepts, the following comments highlight the complicated nature of getting Table 1 automation to <em>just work</em>:</p>
+<p>While the <em>datascienceplus.com</em> website provides great resources for many important data science concepts, the following comments highlight the complicated nature of getting Table 1 automation to <em>just work</em>:</p>
 <figure>
     <img src="https://www.table1.cc/img/limitations-of-r-1.png"
          alt="Figure 1. An example of a data scientist with difficulties (source: datascienceplus.com website)"/> <figcaption>
@@ -203,13 +202,13 @@
 <p>The resulting table is functional, as seen below.</p>
 <figure>
     <img src="https://www.table1.cc/img/table1_screenshot-datascienceplus.jpg"
-         alt="Figure 3. The resulting Table (source: datascienceplus.com)"/> <figcaption>
-            <p>Figure 3. The resulting Table (source: <a href=https://datascienceplus.com/table-1-and-the-characteristics-of-study-population/>datascienceplus.com)</a></p>
+         alt="Figure 3. The resulting Table using the traditional automation methods as discussed on datascienceplus.com (source: datascienceplus.com)"/> <figcaption>
+            <p>Figure 3. The resulting Table using the traditional automation methods as discussed on datascienceplus.com (source: <a href=https://datascienceplus.com/table-1-and-the-characteristics-of-study-population/>datascienceplus.com)</a></p>
         </figcaption>
 </figure>
 
 <h1 id="how-table1cc-is-different">How table1.cc is different</h1>
-<p>Creating an automated <em>Table 1</em> using table1.cc is easy using the following procedure:</p>
+<p>Table1.cc simplifies and streamlines all steps of the process by omitting the need for complex syntax. Creating an automated <em>Table 1</em> using table1.cc is easy using the following procedure:</p>
 <ol>
 <li>
 <p>Download the <a href="https://datascienceplus.com/wp-content/uploads/2016/02/dt_simulated.csv">sample data set</a> (courtesy of Klodian Dhana, datascienceplus.com)</p>
