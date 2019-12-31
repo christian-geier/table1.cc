@@ -3,7 +3,7 @@
 {% block head %}
 <title>table1.cc | Frequently Asked Questions about table1.cc</title>
 <link rel="canonical" href="https://www.table1.cc/faq" />
-<meta name="description" content="Answers to frequently asked questions about the Table 1 creation tool.">
+<meta name="description" content="Answers to frequently asked questions about table1.cc, the graphical Table 1 creation tool to help boost productivity and reproducibility for research papers.">
 {{ super() }}
 {% endblock %}
 
@@ -12,6 +12,7 @@
 <div class="container">
 
 <div class="item1">
+<br>
 
 <h5><em>Q: What is the purpose of table1.cc?</em></h5>
 
@@ -20,24 +21,41 @@ To minimize error, optimize efficiency and enhance reproducibility, automation o
 but their reliance on programming syntax limits their widespread adoption.
 </h5>
 
+<br>
+
 <h5><em>Q: Who is the author of table1.cc?</em></h5>
 <h5>A: Table1.cc was created by <a href="https://christiangeier.co">Christian Geier, MD</a>. While analyzing Rheumatology clinical trial data at the <a href="https://www.rheumatologyatcolumbia.org/news/ny-state-rheumatology-society-awards-first-place-christian-geier">Columbia University Division of Rheumatology</a>, Christian became inspired to create a user friendly interface to help create 'Table 1' to facilitate these analyses.
 </h5>
+
+<br>
+
+<h5><em>Q: How does table1.cc work?</em></h5>
+<h5>A: Table1.cc uses the 'tableone' Python module (Source: <a href="https://doi.org/10.1093/jamiaopen/ooy012">Pollard et al.; JAMIAopen</a>) as back end which in turn was inspired by the tableone R package by <a href="https://cran.r-project.org/web/packages/tableone/vignettes/introduction.html">Kazuki Yoshida</a>. The table1.cc website allows Python/R access with an easy-to-use graphical interface.
+</h5>
+
+<br>
 
 <h5><em>Q: Does table1.cc store my data ?</em></h5>
 <h5>A: No. Table1.cc does not use any permanent storage as we strictly follow the principle to store the least amount of data to perform a given task. You can read more about our design choices <a href="https://www.table1.cc/blog/posts/ensuring-effective-encryption-on-table1cc/">here</a>.
 </h5>
 
+<br>
+
 <h5><em>Q: What about the <em>transmission</em> of my data? Is all web traffic encrypted?</em></h5>
 <h5>A: Yes. Table1.cc uses https and SSL certificates through <em>Let's encrypt</em>. You can read more about our initiatives to ensure encryption is this <a href="https://www.table1.cc/blog/posts/ensuring-effective-encryption-on-table1cc/">blog post</a>.
 </h5>
 
+<br>
+
+<h5><em>Q: Can I access the source code to verify it's secure?</em></h5>
+<h5>A: Yes. The source code for table1.cc is available on <a href="https://github.com/christian-geier/table1cc">GitHub</a>.
+</h5>
+
+<br>
+
 <h5><em>Q: How can I support the project?</em></h5>
 <h5>A: You can follow us on Twitter (<a href="https://twitter.com/table1cc">@table1cc</a>) or tweet about table1.cc to provide additional feedback.
 </h5>
-
-
-
 
 </div>
 
