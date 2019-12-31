@@ -6,10 +6,43 @@
    <description>Recent content in Tags on table1.cc | Simple Creation of Summary Statistics for Research Papers</description>
    <generator>Hugo -- gohugo.io</generator>
    <copyright>Copyright &amp;copy; 2019 - table1.cc</copyright>
-   <lastBuildDate>Sun, 29 Dec 2019 17:58:48 -0500</lastBuildDate>
+   <lastBuildDate>Mon, 30 Dec 2019 19:40:40 -0500</lastBuildDate>
    
        <atom:link href="https://www.table1.cc/blog/tags/index.xml" rel="self" type="application/rss+xml" />
    
+   
+     <item>
+       <title>How We Handle Research Data to Ensure Privacy</title>
+       <link>https://www.table1.cc/blog/posts/how-we-handle-research-data-to-ensure-privacy/</link>
+       <pubDate>Mon, 30 Dec 2019 19:40:40 -0500</pubDate>
+       
+       <guid>https://www.table1.cc/blog/posts/how-we-handle-research-data-to-ensure-privacy/</guid>
+       <description>&lt;p&gt;Trust is a critical component of scientific collaboration including the use of research tools. In a previous post, we reviewed &lt;a href=&#34;https://www.table1.cc/blog/posts/ensuring-effective-encryption-on-table1cc/&#34;&gt;how table1.cc enforces encryption of all web traffic&lt;/a&gt;. In this post, we will review in detail how we handle the exchange of data in the table1.cc system.&lt;/p&gt;
+&lt;h1 id=&#34;submitting-data-to-table1cc&#34;&gt;Submitting data to table1.cc&lt;/h1&gt;
+&lt;p&gt;What happens when you submit a data set via our website? After pasting data from a spreadsheet into the submit form and hitting &lt;em&gt;submit&lt;/em&gt;, your data is immediately encrypted. Table1.cc uses &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;&lt;em&gt;Let’s encrypt&lt;/em&gt;&lt;/a&gt; as our encryption certificate provider. This means that all data is transferred securely and cannot be accessed by any third party intermediary. The same happens with your desired settings you select when generating your Table 1 automatically (Figure 1, upper left).&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;https://www.table1.cc/img/table1.cc-architecture.png&#34;
+         alt=&#34;Figure 1. Simplified scheme of the secure table1.cc website architecture. Communication between web browser, the Flask webserver, Python and tableone (within Heroku). See text for additional details.&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Figure 1. Simplified scheme of the secure table1.cc website architecture. Communication between web browser, the Flask webserver, Python and tableone (within Heroku). See text for additional details.&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h1 id=&#34;research-data-processing-on-the-table1cc-application&#34;&gt;Research Data processing on the table1.cc application&lt;/h1&gt;
+&lt;p&gt;What happens when the encrypted data reaches the table1.cc server? Table1.cc runs on the &lt;a href=&#34;https://www.heroku.com&#34;&gt;Heroku platform&lt;/a&gt;, a cloud service that runs a &lt;em&gt;sandboxed&lt;/em&gt; environment (Figure 1, right outer rectangle). One of the characteristic design aspects of Heroku is that it uses a so-called &lt;em&gt;&amp;lsquo;ephemeral&amp;rsquo;&lt;/em&gt; file system. &lt;em&gt;Ephemeral&lt;/em&gt; means that our underlying file system &lt;strong&gt;&lt;strong&gt;cannot&lt;/strong&gt;&lt;/strong&gt; store &lt;em&gt;any&lt;/em&gt; data permanently within this Heroku sandbox. To emphasize this point, the table1.cc application is not capable of permanently storing data which means that &lt;strong&gt;&lt;em&gt;any data you submit to us will automatically be discarded once the task is completed&lt;/em&gt;&lt;/strong&gt;!&lt;/p&gt;
+&lt;h1 id=&#34;generation-of--table-1--via-the-tableone-python-module&#34;&gt;Generation of &lt;em&gt;Table 1&lt;/em&gt; via the &lt;code&gt;tableone&lt;/code&gt; Python module&lt;/h1&gt;
+&lt;p&gt;In the next step, the SSL-encrypted data is received and process via a software called &lt;em&gt;Flask&lt;/em&gt;. &lt;em&gt;Flask&lt;/em&gt; is a Python web server framework which handles this communication between the user and application code. Because &lt;em&gt;Flask&lt;/em&gt; is pure Python code, communicating with other Python software modules is straightforward:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flask &lt;em&gt;&amp;lsquo;translates&amp;rsquo;&lt;/em&gt; your data into a Python &lt;em&gt;data frame&lt;/em&gt;, a specialized data structure used in analytics.&lt;/li&gt;
+&lt;li&gt;Next, it translates the preferences entered on the website into parameters for the Python/Pandas tableone package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;rendering--table-1--within-the-browser-window&#34;&gt;Rendering &lt;em&gt;Table 1&lt;/em&gt; within the Browser window&lt;/h1&gt;
+&lt;p&gt;Next, Python and &lt;em&gt;tableone&lt;/em&gt; automatically generate the table summarizing you data of interest. Subsequently, this table is rendered into HTML, and then returned to the user. The user’s web browser then translates HTML into a human readable table on the website (Figure 1, lower left).&lt;/p&gt;
+&lt;h1 id=&#34;bottom-line&#34;&gt;Bottom Line&lt;/h1&gt;
+&lt;p&gt;Table1.cc is designed from the bottom up to avoid storing any necessary data. This becomes most obvious by the complete absence of any database storage within its architecture. All data communication from and to the user is exclusively transmitted via enforced SSL encryption so you can feel confident that your research data remains absolutely confidential.&lt;/p&gt;
+&lt;p&gt;You can learn more about how automation with table1.cc can boost your research productivity &lt;a href=&#34;https://www.table1.cc/blog/posts/better-research-productivity-and-reproducibility-through-table1-automation&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you are curious, give it a try &lt;a href=&#34;https://www.table1.cc&#34;&gt;here&lt;/a&gt; and follow us on Twitter &lt;a href=&#34;https://twitter.com/table1cc&#34;&gt;@table1cc&lt;/a&gt;.&lt;/p&gt;
+</description>
+     </item>
    
      <item>
        <title>Better Research Productivity and Reproducibility Through Table 1 Automation</title>
